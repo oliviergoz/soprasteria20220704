@@ -52,6 +52,8 @@ public class Personne {
 		Personne other = (Personne) obj;
 		return Objects.equals(id, other.id);
 	}
+
+	
 	
 	
 }
