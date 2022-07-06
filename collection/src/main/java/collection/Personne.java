@@ -3,13 +3,20 @@ package collection;
 import java.util.Objects;
 
 public class Personne {
+	private static Long auto = 100L;
 	private Long id;
 	private String prenom;
 	private String nom;
-	public Personne(Long id, String prenom, String nom) {
-		this.id = id;
+
+	public Personne(String prenom, String nom) {
+		this.id = auto;
 		this.prenom = prenom;
 		this.nom = nom;
+		auto++;
+	}
+
+	public Personne() {
+
 	}
 
 	public Long getId() {
@@ -53,7 +60,4 @@ public class Personne {
 		return Objects.equals(id, other.id);
 	}
 
-	
-	
-	
 }

@@ -3,10 +3,12 @@ package collection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -18,8 +20,32 @@ import bibliotheque.exception.DisqueDejaPresentException;
 public class App {
 	public static void main(String[] args) {
 		// testBibliotheque();
-		testlambda();
+		//testlambda();
+		demoMap();
 	}
+	
+	private static void demoMap() {
+		Map<Personne, Disque> map=new HashMap<Personne, Disque>();
+		
+		map.put(new Personne(1L,"aaa","bbb"), new Disque("disqueAAA", "disqueAAA"));
+		map.put(new Personne(2L,"bbb","cccc"), new Disque("disqueBBB","disqueBBB"));
+		
+		System.out.println(map.get(new Personne(3L,null,null)));
+		System.out.println("--------------");
+		for(Personne p:map.keySet()) {
+			System.out.println(map.get(p));
+		}
+		System.out.println("--------------");
+		for(Disque disque:map.values()) {
+			System.out.println(disque);
+		}
+		System.out.println("--------------");
+		map.forEach((k,v)->{
+			System.out.println(k+" "+v);
+		});
+	}
+	
+	
 
 	private static void testlambda() {
 //		String[] tab = { "toto", "maman", "papa", "avion" };
