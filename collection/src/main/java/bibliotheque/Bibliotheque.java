@@ -69,4 +69,12 @@ public class Bibliotheque {
 				.filter(chanson -> chanson.getNom().toLowerCase().contains(recherche.toLowerCase()))
 				.collect(Collectors.toList());
 	}
+
+	public static Bibliotheque load(String nom) {
+		return null;
+	}
+	
+	public void save() {
+		
+	}
 }
