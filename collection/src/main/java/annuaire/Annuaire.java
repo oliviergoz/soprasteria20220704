@@ -51,8 +51,8 @@ public class Annuaire {
 	}
 
 	public Map<Personne, Set<Coordonnee>> recherche(Adresse adresse) {
-		return map.entrySet().stream().filter(map -> map.getValue().contains(adresse))
-				.collect(Collectors.toMap(map -> map.getKey(), map -> map.getValue()));
+		return map.entrySet().stream().filter(entry -> entry.getValue().contains(adresse))
+				.collect(Collectors.toMap(entry -> entry.getKey(), entry -> entry.getValue()));
 	}
 
 }
