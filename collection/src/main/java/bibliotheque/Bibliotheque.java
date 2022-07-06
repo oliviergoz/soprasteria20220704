@@ -1,5 +1,10 @@
 package bibliotheque;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -9,7 +14,7 @@ import java.util.stream.Collectors;
 
 import bibliotheque.exception.DisqueDejaPresentException;
 
-public class Bibliotheque {
+public class Bibliotheque implements Serializable{
 	private Set<Disque> disques = new LinkedHashSet<Disque>();
 
 	public Bibliotheque() {
@@ -71,10 +76,25 @@ public class Bibliotheque {
 	}
 
 	public static Bibliotheque load(String nom) {
-		return null;
+		Bibliotheque biblio = null;
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nom));
+			biblio = (Bibliotheque) ois.readObject();
+			ois.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return biblio;
 	}
-	
-	public void save() {
-		
+
+	public void save(String nom) {
+		// sauvegarde la bibliotheque (this) dans un fichier
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("src/main/resources/" + nom));
+			oos.writeObject(this);
+			oos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

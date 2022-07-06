@@ -1,8 +1,9 @@
 package bibliotheque;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Chanson {
+public class Chanson implements Serializable {
 	private String nom;
 	private int duree;
 

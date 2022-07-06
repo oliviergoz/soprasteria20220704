@@ -20,32 +20,43 @@ import bibliotheque.exception.DisqueDejaPresentException;
 public class App {
 	public static void main(String[] args) {
 		// testBibliotheque();
-		//testlambda();
-		demoMap();
+		// testlambda();
+		// demoMap();
+		testLoad();
 	}
-	
+
+	private static void testLoad() {
+		Bibliotheque biblio = Bibliotheque.load("src/main/resources/biblio");
+		System.out.println(biblio.getNbDisques());
+
+		System.out.println(biblio.rechercherDisques("best").size());
+
+		System.out.println(biblio.rechercherDisques("bob").size());
+
+		System.out.println(biblio.rechercherChansons("th").size());
+
+	}
+
 	private static void demoMap() {
-		Map<Personne, Disque> map=new HashMap<Personne, Disque>();
-		
-		map.put(new Personne(1L,"aaa","bbb"), new Disque("disqueAAA", "disqueAAA"));
-		map.put(new Personne(2L,"bbb","cccc"), new Disque("disqueBBB","disqueBBB"));
-		
-		System.out.println(map.get(new Personne(3L,null,null)));
+		Map<Personne, Disque> map = new HashMap<Personne, Disque>();
+
+		map.put(new Personne("aaa", "bbb"), new Disque("disqueAAA", "disqueAAA"));
+		map.put(new Personne("bbb", "cccc"), new Disque("disqueBBB", "disqueBBB"));
+
+		System.out.println(map.get(new Personne(null, null)));
 		System.out.println("--------------");
-		for(Personne p:map.keySet()) {
+		for (Personne p : map.keySet()) {
 			System.out.println(map.get(p));
 		}
 		System.out.println("--------------");
-		for(Disque disque:map.values()) {
+		for (Disque disque : map.values()) {
 			System.out.println(disque);
 		}
 		System.out.println("--------------");
-		map.forEach((k,v)->{
-			System.out.println(k+" "+v);
+		map.forEach((k, v) -> {
+			System.out.println(k + " " + v);
 		});
 	}
-	
-	
 
 	private static void testlambda() {
 //		String[] tab = { "toto", "maman", "papa", "avion" };
@@ -74,15 +85,14 @@ public class App {
 		chansonDeBobMarley.add(new Chanson("i shoot the sherif", 500));
 
 		Disque disque1 = new Disque("best of bob marley", "1234AZER", chansonDeBobMarley);
-		List<Disque> list = Arrays.asList(disque1,new Disque("best of acdc", "666ACDC", new Chanson("hightway to hell", 666),
-				new Chanson("thunder", 400)));
+		List<Disque> list = Arrays.asList(disque1, new Disque("best of acdc", "666ACDC",
+				new Chanson("hightway to hell", 666), new Chanson("thunder", 400)));
 
 		List<Chanson> allChansons = list.stream().flatMap(disque -> disque.getChansons().stream())
 				.collect(Collectors.toList());
 		System.out.println(allChansons);
-		
-		System.out.println(list.stream().map(disque -> disque.getChansons())
-				.collect(Collectors.toList()));
+
+		System.out.println(list.stream().map(disque -> disque.getChansons()).collect(Collectors.toList()));
 
 	}
 
@@ -126,5 +136,7 @@ public class App {
 		System.out.println(biblio.rechercherDisques("bob").size());
 
 		System.out.println(biblio.rechercherChansons("th").size());
+
+		biblio.save("biblio");
 	}
 }

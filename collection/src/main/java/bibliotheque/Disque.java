@@ -1,11 +1,12 @@
 package bibliotheque;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Disque {
+public class Disque implements Serializable{
 	private String nom;
 	private String codeBarre;
 	private Set<Chanson> chansons = new HashSet<Chanson>();
