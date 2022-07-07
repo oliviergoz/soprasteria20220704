@@ -1,7 +1,10 @@
 package formationJdbc;
 
+import formationJdbc.dao.DaoDepartement;
+import formationJdbc.dao.DaoDepartementFactory;
 import formationJdbc.dao.DaoEmployee;
 import formationJdbc.dao.DaoEmployeeFactory;
+import formationJdbc.model.Departement;
 import formationJdbc.model.Employee;
 
 public class TestPropre {
@@ -22,6 +25,17 @@ public class TestPropre {
 //		daoEmployee.findAll().forEach(e -> {
 //			System.out.println(e.getId() + " " + e.getNom());
 //		});
+
+		DaoDepartement daoDepartement = DaoDepartementFactory.getInstance();
+
+		// daoDepartement.insert(new Departement("aaa"));
+		// daoDepartement.deleteByKey(50L);
+		daoDepartement.findAll().forEach(d -> {
+			System.out.println(d.getId() + " " + d.getNom());
+		});
+		
+		
+		System.out.println(daoDepartement.findAll());
 
 	}
 }
