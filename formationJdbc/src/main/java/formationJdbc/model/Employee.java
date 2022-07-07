@@ -1,21 +1,18 @@
-package collection;
+package formationJdbc.model;
 
 import java.util.Objects;
 
-public class Personne {
-	private static Long auto = 100L;
+public class Employee {
+
 	private Long id;
-	private String prenom;
 	private String nom;
 
-	public Personne(String prenom, String nom) {
-		this.id = Personne.auto;
-		this.prenom = prenom;
+	public Employee(Long id, String nom) {
+		this.id = id;
 		this.nom = nom;
-		Personne.auto++;
 	}
 
-	public Personne() {
+	public Employee() {
 
 	}
 
@@ -25,14 +22,6 @@ public class Personne {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
 	}
 
 	public String getNom() {
@@ -56,7 +45,7 @@ public class Personne {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Personne other = (Personne) obj;
+		Employee other = (Employee) obj;
 		return Objects.equals(id, other.id);
 	}
 
