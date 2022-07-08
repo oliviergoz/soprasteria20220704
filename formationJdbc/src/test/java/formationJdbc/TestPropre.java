@@ -1,5 +1,8 @@
 package formationJdbc;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import formationJdbc.dao.DaoDepartement;
 import formationJdbc.dao.DaoDepartementFactory;
 import formationJdbc.dao.DaoEmployee;
@@ -11,31 +14,13 @@ public class TestPropre {
 	public static void main(String[] args) {
 
 		DaoEmployee daoEmployee = DaoEmployeeFactory.getInstance();
-		Employee emp = null;
-//		 emp=new Employee();
-//		emp.setNom("test dao2");
-//		System.out.println(emp.getId());
-//		daoEmployee.insert(emp);
-//		
-//		System.out.println(emp.getId());
-//		
-		emp = daoEmployee.findByKey(109L);
-		System.out.println(emp.getId());
-//		//new DaoEmployeeJdbcImpl(); plus visible
-//		daoEmployee.findAll().forEach(e -> {
-//			System.out.println(e.getId() + " " + e.getNom());
-//		});
-
 		DaoDepartement daoDepartement = DaoDepartementFactory.getInstance();
 
-		// daoDepartement.insert(new Departement("aaa"));
-		// daoDepartement.deleteByKey(50L);
-		daoDepartement.findAll().forEach(d -> {
-			System.out.println(d.getId() + " " + d.getNom());
-		});
+		Employee employee = daoEmployee.findByKey(101L);
+//		employee.setEmbauche(LocalDate.of(2022, 7, 8));
+//		daoEmployee.update(employee);
 		
-		
-		System.out.println(daoDepartement.findAll());
+		System.out.println(employee.getEmbauche());
 
 	}
 }

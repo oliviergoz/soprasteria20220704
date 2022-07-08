@@ -1,10 +1,13 @@
 package formationJdbc.model;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class Departement {
 	private Long id;
 	private String nom;
+	private Set<Employee> employees = new HashSet<Employee>();
 
 	public Departement() {
 
@@ -17,6 +20,10 @@ public class Departement {
 
 	public Departement(String nom) {
 		this.nom = nom;
+	}
+
+	public Set<Employee> getEmployees() {
+		return employees;
 	}
 
 	public Long getId() {

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import formationJdbc.model.Departement;
+import formationJdbc.model.Employee;
 import formationJdbc.util.Context;
 
 class DaoDepartementJdbcImpl implements DaoDepartement {
@@ -53,6 +54,12 @@ class DaoDepartementJdbcImpl implements DaoDepartement {
 	public void deleteByKey(Long key) {
 		try {
 			PreparedStatement ps = Context.getInstance().getConnection()
+					.prepareStatement("update employees set department_id=null where department_id=?");
+
+			ps.setLong(1, key);
+			ps.executeUpdate();
+
+			ps = Context.getInstance().getConnection()
 					.prepareStatement("delete from departments where department_id=?");
 			ps.setLong(1, key);
 			ps.executeUpdate();
@@ -61,6 +68,36 @@ class DaoDepartementJdbcImpl implements DaoDepartement {
 		}
 		Context.close();
 
+	}
+
+	public Departement findByKeyWithEmployees(Long key) {
+		Departement departement = null;
+		try {
+			// @formatter:off
+			PreparedStatement ps = Context.getInstance().getConnection()
+					.prepareStatement(
+							"select d.department_id,d.department_name,e.employee_id,e.last_name"
+							+ " from departments d left join employees e"
+							+ " on d.department_id=e.department_id "
+							+ " where d.department_id=?");
+			
+			// @formatter:on
+			ps.setLong(1, key);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				if (departement == null) {
+					departement = new Departement(rs.getLong("department_id"), rs.getString("department_name"));
+				}
+				if (rs.getLong("employee_id") != 0) {
+					departement.getEmployees()
+							.add(new Employee(rs.getLong("employee_id"), rs.getString("last_name"), departement));
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Context.close();
+		return departement;
 	}
 
 	@Override
