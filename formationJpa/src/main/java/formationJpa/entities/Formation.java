@@ -1,5 +1,6 @@
 package formationJpa.entities;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -11,21 +12,28 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "person")
-@SequenceGenerator(name = "seqPersonne", 
-					sequenceName = "seq_person",
-					allocationSize = 1, initialValue = 100)
-public class Personne {
+@Table(name = "formation")
+@SequenceGenerator(name = "seqFormation", sequenceName = "seq_formation", allocationSize = 1, initialValue = 100)
+public class Formation {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqPersonne")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqFormation")
 	private Long id;
-	@Column(name = "first_name", nullable = false)
-	private String prenom;
-	@Column(name = "last_name",nullable = false)
+	@Column(name="nom")
 	private String nom;
+	@Column(name="date_formation")
+	private LocalDate date;
 
-	public Personne() {
+	public Formation() {
 
+	}
+
+	public Formation(String nom, LocalDate date) {
+		this.nom = nom;
+		this.date = date;
+	}
+
+	public Formation(String nom) {
+		this(nom, LocalDate.now());
 	}
 
 	public Long getId() {
@@ -36,20 +44,20 @@ public class Personne {
 		this.id = id;
 	}
 
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
 	public String getNom() {
 		return nom;
 	}
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
 
 	@Override
@@ -65,7 +73,7 @@ public class Personne {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Personne other = (Personne) obj;
+		Formation other = (Formation) obj;
 		return Objects.equals(id, other.id);
 	}
 
