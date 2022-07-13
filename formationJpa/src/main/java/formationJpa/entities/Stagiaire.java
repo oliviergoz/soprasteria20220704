@@ -2,6 +2,8 @@ package formationJpa.entities;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -11,6 +13,9 @@ import javax.persistence.Table;
 //@DiscriminatorValue("S")
 public class Stagiaire extends Personne {
 	private String entreprise;
+	@OneToOne
+	@JoinColumn(name = "pc_id")
+	private Ordinateur ordinateur;
 
 	public String getEntreprise() {
 		return entreprise;
@@ -18,6 +23,14 @@ public class Stagiaire extends Personne {
 
 	public void setEntreprise(String entreprise) {
 		this.entreprise = entreprise;
+	}
+
+	public Ordinateur getOrdinateur() {
+		return ordinateur;
+	}
+
+	public void setOrdinateur(Ordinateur ordinateur) {
+		this.ordinateur = ordinateur;
 	}
 
 }

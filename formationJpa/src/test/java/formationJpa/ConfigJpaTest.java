@@ -25,20 +25,23 @@ public class ConfigJpaTest {
 
 		DaoPersonne daoPersonne = DaoPersonneFactory.getInstance();
 		DaoFormation daoFormation = DaoFormationFactory.getInstance();
-		daoFormation.insert(new Formation("java", LocalDate.of(2022, 7, 12)));
+		Formation formation = new Formation("java", LocalDate.of(2022, 7, 12));
+		daoFormation.insert(formation);
 
-		Personne olivier = new Formateur();
+		Formateur olivier = new Formateur();
 		olivier.setPrenom("olivier");
 		olivier.setCivilite(Civilte.MLLE);
 		olivier.setAdresse(new Adresse("1", "rue", "3333", "aaaa"));
 		daoPersonne.insert(olivier);
 
-		//daoPersonne.findByKey(100L);
-		Personne stagiaire = new Stagiaire();
-		stagiaire.setPrenom("eeee");
-		daoPersonne.insert(stagiaire);
-		//System.out.println(daoPersonne.findAll());
-		daoPersonne.findAllFormateur();
+		Formateur referent = new Formateur();
+		referent.setId(100L);
+		formation.setReferent(referent);
+		System.out.println("--------------");
+		daoFormation.update(formation);
+
+		formation = daoFormation.findByKey(100L);
+		System.out.println(formation.getReferent());
 		Context.destroy();
 	}
 }
