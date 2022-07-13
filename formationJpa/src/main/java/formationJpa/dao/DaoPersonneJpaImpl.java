@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
+import formationJpa.entities.Formateur;
 import formationJpa.entities.Personne;
 import formationJpa.util.Context;
 
@@ -62,6 +63,16 @@ class DaoPersonneJpaImpl implements DaoPersonne {
 		// Query query=em.createQuery("from Personne p");
 		TypedQuery<Personne> query = em.createQuery("from Personne p", Personne.class);
 		List<Personne> list = query.getResultList();
+		em.close();
+		return list;
+	}
+
+	@Override
+	public List<Formateur> findAllFormateur() {
+		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
+		// Query query=em.createQuery("from Personne p");
+		TypedQuery<Formateur> query = em.createQuery("from Formateur p", Formateur.class);
+		List<Formateur> list = query.getResultList();
 		em.close();
 		return list;
 	}

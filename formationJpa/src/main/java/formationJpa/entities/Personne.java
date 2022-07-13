@@ -5,6 +5,8 @@ import java.util.Objects;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,14 +14,21 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity
-@Table(name = "person")
-@SequenceGenerator(name = "seqPersonne", sequenceName = "seq_person", allocationSize = 1, initialValue = 100)
-public class Personne {
+//@Entity
+//@Table(name = "person")
+//@SequenceGenerator(name = "seqPersonne", sequenceName = "seq_person", allocationSize = 1, initialValue = 100)
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 1)
+@MappedSuperclass
+public abstract class Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqPersonne")
 	private Long id;
@@ -32,17 +41,14 @@ public class Personne {
 	@Column(name = "civility")
 	@Enumerated(EnumType.ORDINAL)
 	private Civilte civilite;
-	//@Transient
+	// @Transient
 	@Embedded
-	@AttributeOverrides({
-		@AttributeOverride(name = "numero",column = @Column(name="person_number",length = 50)),
-		@AttributeOverride(name="rue",column = @Column(name="person_street",length = 255)),
-		@AttributeOverride(name="codePostal",column = @Column(name="person_zip_code",length = 50)),
-		@AttributeOverride(name="ville",column = @Column(name="person_city",length = 255))
-	})
+	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "person_number", length = 50)),
+			@AttributeOverride(name = "rue", column = @Column(name = "person_street", length = 255)),
+			@AttributeOverride(name = "codePostal", column = @Column(name = "person_zip_code", length = 50)),
+			@AttributeOverride(name = "ville", column = @Column(name = "person_city", length = 255)) })
 	private Adresse adresse;
-	
-	
+
 	public Personne() {
 
 	}
