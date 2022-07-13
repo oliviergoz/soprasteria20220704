@@ -12,6 +12,8 @@ import formationJpa.dao.DaoFormation;
 import formationJpa.dao.DaoFormationFactory;
 import formationJpa.dao.DaoPersonne;
 import formationJpa.dao.DaoPersonneFactory;
+import formationJpa.entities.Adresse;
+import formationJpa.entities.Civilte;
 import formationJpa.entities.Formation;
 import formationJpa.entities.Personne;
 import formationJpa.util.Context;
@@ -22,8 +24,14 @@ public class ConfigJpaTest {
 		DaoPersonne daoPersonne = DaoPersonneFactory.getInstance();
 		DaoFormation daoFormation=DaoFormationFactory.getInstance();
 		daoFormation.insert(new Formation("java", LocalDate.of(2022,7,12)));
-		Formation f=daoFormation.findByKey(100L);
-		System.out.println(f.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+		
+		
+		Personne olivier=new Personne();
+		olivier.setPrenom("olivier");
+		olivier.setCivilite(Civilte.MLLE);
+		olivier.setAdresse(new Adresse("1", "rue", "3333", "aaaa"));
+		daoPersonne.insert(olivier);
+		System.out.println(daoPersonne.findByKey(100L).getAdresse());
 		Context.destroy();
 	}
 }
