@@ -2,6 +2,8 @@ package formationJpa;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,6 +12,8 @@ import javax.persistence.Persistence;
 
 import formationJpa.dao.DaoFormation;
 import formationJpa.dao.DaoFormationFactory;
+import formationJpa.dao.DaoModule;
+import formationJpa.dao.DaoModuleFactory;
 import formationJpa.dao.DaoOrdinateur;
 import formationJpa.dao.DaoOrdinateurFactory;
 import formationJpa.dao.DaoPersonne;
@@ -18,6 +22,7 @@ import formationJpa.entities.Adresse;
 import formationJpa.entities.Civilte;
 import formationJpa.entities.Formateur;
 import formationJpa.entities.Formation;
+import formationJpa.entities.Module;
 import formationJpa.entities.Ordinateur;
 import formationJpa.entities.Personne;
 import formationJpa.entities.Ram;
@@ -29,6 +34,7 @@ public class ConfigJpaTest {
 
 		DaoPersonne daoPersonne = DaoPersonneFactory.getInstance();
 		DaoFormation daoFormation = DaoFormationFactory.getInstance();
+		DaoModule daoModule = DaoModuleFactory.getInstance();
 		Formation formation = new Formation("java", LocalDate.of(2022, 7, 12));
 		daoFormation.insert(formation);
 
@@ -40,36 +46,20 @@ public class ConfigJpaTest {
 		// traitements.....
 		// Formateur referent = new Formateur();
 		// referent.setId(100L);
-		System.out.println("--------------");
-		Formateur referent = daoPersonne.findFormateurByKey(100L);
 
-		formation.setReferent(referent);
-		System.out.println("--------------");
-		daoFormation.update(formation);
+		Module java = new Module("java");
+		Module jpa = new Module("jpa");
+		daoModule.insert(jpa);
+		daoModule.insert(java);
 
-		formation = daoFormation.findByKey(100L);
-		System.out.println(formation.getReferent());
-		System.out.println("-----recuperation formateur---------");
-		 referent = daoPersonne.findFormateurByKey(100L);
-		 System.out.println(referent.getFormations());
-		Stagiaire s1 = new Stagiaire();
-		s1.setPrenom("valentin");
+		Set<Module> modules = new HashSet<Module>();
+		modules.add(jpa);
+		modules.add(java);
+		olivier.setModules(modules);
+		daoPersonne.update(olivier);
+		modules.remove(jpa);
+		daoPersonne.update(olivier);
 
-		daoPersonne.insert(s1);
-
-		Ordinateur pc1 = new Ordinateur(Ram.GO16);
-		DaoOrdinateur daoOrdinateur = DaoOrdinateurFactory.getInstance();
-
-		daoOrdinateur.insert(pc1);
-
-		s1.setOrdinateurPret(pc1);
-
-		daoPersonne.update(s1);
-
-		System.out.println("-----requete sur stagiaire------");
-		daoPersonne.findStagiaireByKey(s1.getId());
-		System.out.println("------requete pc--------");
-		daoOrdinateur.findByKey(pc1.getId());
 		Context.destroy();
 	}
 }

@@ -33,8 +33,11 @@ public class Formation {
 	// @ManyToOne @OneToMany
 	// @ManyToMany @ManyToMany
 	@ManyToOne
-	@JoinColumn(name = "referent_id",foreignKey = @ForeignKey(name="formation_referent_id_fk"))
+	@JoinColumn(name = "referent_id", foreignKey = @ForeignKey(name = "formation_referent_id_fk"))
 	private Formateur referent;
+	@ManyToOne
+	@JoinColumn(name = "salle_id", foreignKey = @ForeignKey(name = "formation_salle_id_fk"))
+	private Salle salle;
 
 	public Formation() {
 
@@ -79,6 +82,14 @@ public class Formation {
 
 	public void setReferent(Formateur referent) {
 		this.referent = referent;
+	}
+
+	public Salle getSalle() {
+		return salle;
+	}
+
+	public void setSalle(Salle salle) {
+		this.salle = salle;
 	}
 
 	@Override
