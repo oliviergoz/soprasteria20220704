@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 
 import formationJpa.entities.Formateur;
 import formationJpa.entities.Personne;
+import formationJpa.entities.Stagiaire;
 import formationJpa.util.Context;
 
 class DaoPersonneJpaImpl implements DaoPersonne {
@@ -50,11 +51,25 @@ class DaoPersonneJpaImpl implements DaoPersonne {
 	}
 
 	@Override
-	public Personne findByKey(Long key) {
+	public Formateur findFormateurByKey(Long key) {
 		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
-		Personne p = em.find(Personne.class, key);
+		Formateur p = em.find(Formateur.class, key);
+		//System.out.println(p.getFormations());
 		em.close();
 		return p;
+	}
+
+	@Override
+	public Stagiaire findStagiaireByKey(Long key) {
+		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
+		Stagiaire p = em.find(Stagiaire.class, key);
+		em.close();
+		return p;
+	}
+
+	@Override
+	public Personne findByKey(Long key) {
+		return null;
 	}
 
 	@Override

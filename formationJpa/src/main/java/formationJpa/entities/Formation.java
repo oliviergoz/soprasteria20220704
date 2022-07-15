@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,7 +33,7 @@ public class Formation {
 	// @ManyToOne @OneToMany
 	// @ManyToMany @ManyToMany
 	@ManyToOne
-	@JoinColumn(name = "referent_id")
+	@JoinColumn(name = "referent_id",foreignKey = @ForeignKey(name="formation_referent_id_fk"))
 	private Formateur referent;
 
 	public Formation() {

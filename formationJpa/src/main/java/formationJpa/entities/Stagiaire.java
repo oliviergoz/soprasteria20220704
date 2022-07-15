@@ -15,7 +15,7 @@ public class Stagiaire extends Personne {
 	private String entreprise;
 	@OneToOne
 	@JoinColumn(name = "pc_id")
-	private Ordinateur ordinateur;
+	private Ordinateur ordinateurPret;
 
 	public String getEntreprise() {
 		return entreprise;
@@ -25,12 +25,12 @@ public class Stagiaire extends Personne {
 		this.entreprise = entreprise;
 	}
 
-	public Ordinateur getOrdinateur() {
-		return ordinateur;
+	public Ordinateur getOrdinateurPret() {
+		return ordinateurPret;
 	}
 
-	public void setOrdinateur(Ordinateur ordinateur) {
-		this.ordinateur = ordinateur;
+	public void setOrdinateurPret(Ordinateur ordinateur) {
+		this.ordinateurPret = ordinateur;
 	}
 
 }

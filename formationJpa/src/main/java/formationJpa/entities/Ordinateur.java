@@ -3,6 +3,7 @@ package formationJpa.entities;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -12,6 +13,8 @@ import javax.persistence.Table;
 public class Ordinateur extends Materiel {
 	@Enumerated(EnumType.ORDINAL)
 	private Ram ram;
+	@OneToOne(mappedBy = "ordinateurPret")
+	private Stagiaire stagiaire;
 
 	public Ordinateur() {
 
@@ -27,6 +30,14 @@ public class Ordinateur extends Materiel {
 
 	public void setRam(Ram ram) {
 		this.ram = ram;
+	}
+
+	public Stagiaire getStagiaire() {
+		return stagiaire;
+	}
+
+	public void setStagiaire(Stagiaire stagiaire) {
+		this.stagiaire = stagiaire;
 	}
 
 }
