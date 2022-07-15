@@ -14,6 +14,8 @@ import formationJpa.dao.DaoFormation;
 import formationJpa.dao.DaoFormationFactory;
 import formationJpa.dao.DaoModule;
 import formationJpa.dao.DaoModuleFactory;
+import formationJpa.dao.DaoModuleFormation;
+import formationJpa.dao.DaoModuleFormationFactory;
 import formationJpa.dao.DaoOrdinateur;
 import formationJpa.dao.DaoOrdinateurFactory;
 import formationJpa.dao.DaoPersonne;
@@ -23,6 +25,8 @@ import formationJpa.entities.Civilte;
 import formationJpa.entities.Formateur;
 import formationJpa.entities.Formation;
 import formationJpa.entities.Module;
+import formationJpa.entities.ModuleFormation;
+import formationJpa.entities.ModuleFormationKey;
 import formationJpa.entities.Ordinateur;
 import formationJpa.entities.Personne;
 import formationJpa.entities.Ram;
@@ -60,6 +64,12 @@ public class ConfigJpaTest {
 		modules.remove(jpa);
 		daoPersonne.update(olivier);
 
+		ModuleFormation m1 = new ModuleFormation(new ModuleFormationKey(formation, jpa), olivier,
+				LocalDate.of(2022, 7, 12), LocalDate.of(2022, 7, 19));
+		DaoModuleFormation daoModuleFormation = DaoModuleFormationFactory.getInstance();
+		daoModuleFormation.insert(m1);
+		daoModuleFormation.insert(new ModuleFormation(new ModuleFormationKey(formation, java), olivier,
+				LocalDate.of(2022, 7, 1), LocalDate.of(2022, 7, 5)));
 		Context.destroy();
 	}
 }
