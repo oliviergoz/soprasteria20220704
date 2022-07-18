@@ -2,6 +2,7 @@ package formationJpa.entities;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -38,7 +40,8 @@ public class Formation {
 	@ManyToOne
 	@JoinColumn(name = "salle_id", foreignKey = @ForeignKey(name = "formation_salle_id_fk"))
 	private Salle salle;
-
+	@OneToMany(mappedBy = "id.formation")
+	private Set<ModuleFormation> modulesformation;
 	public Formation() {
 
 	}
@@ -90,6 +93,16 @@ public class Formation {
 
 	public void setSalle(Salle salle) {
 		this.salle = salle;
+	}
+	
+	
+
+	public Set<ModuleFormation> getModulesformation() {
+		return modulesformation;
+	}
+
+	public void setModulesformation(Set<ModuleFormation> modulesformation) {
+		this.modulesformation = modulesformation;
 	}
 
 	@Override

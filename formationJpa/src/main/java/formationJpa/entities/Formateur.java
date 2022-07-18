@@ -23,8 +23,8 @@ public class Formateur extends Personne {
 	@ManyToMany
 	@JoinTable(
 			name = "competences", 
-			joinColumns = @JoinColumn(name = "formateur_id", foreignKey = @ForeignKey(name = "comptences_formateur_id_fk")), 
-			inverseJoinColumns = @JoinColumn(name = "module_id", foreignKey = @ForeignKey(name = "comptences_module_id_fk")))
+				joinColumns = @JoinColumn(name = "formateur_id", foreignKey = @ForeignKey(name = "comptences_formateur_id_fk")), 
+				inverseJoinColumns = @JoinColumn(name = "module_id", foreignKey = @ForeignKey(name = "comptences_module_id_fk")))
 	private Set<Module> modules;
 
 	public Integer getExperience() {
