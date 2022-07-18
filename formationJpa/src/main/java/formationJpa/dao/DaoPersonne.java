@@ -12,4 +12,12 @@ public interface DaoPersonne extends DaoGeneric<Personne, Long> {
 	public Formateur findFormateurByKey(Long key);
 
 	public Stagiaire findStagiaireByKey(Long key);
+
+	Formateur findFormateurByIdWithFormations(Long id);
+
+	public Formateur findFormateurByIdWithFormationsAndWithCompetences(Long id);
+
+	public Formateur findFormateurByIdWithCompetences(Long id);
+
+	public List<Formateur> findAllFormateurWithFormations();
 }

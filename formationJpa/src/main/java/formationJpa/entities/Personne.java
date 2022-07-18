@@ -20,6 +20,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.Version;
 
 //@Entity
 //@Table(name = "person")
@@ -48,7 +49,9 @@ public abstract class Personne {
 			@AttributeOverride(name = "codePostal", column = @Column(name = "person_zip_code", length = 50)),
 			@AttributeOverride(name = "ville", column = @Column(name = "person_city", length = 255)) })
 	private Adresse adresse;
-
+	@Version
+	private int version;
+	
 	public Personne() {
 
 	}
@@ -91,6 +94,14 @@ public abstract class Personne {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override

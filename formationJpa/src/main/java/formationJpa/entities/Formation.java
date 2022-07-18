@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -21,6 +23,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "formation")
 @SequenceGenerator(name = "seqFormation", sequenceName = "seq_formation", allocationSize = 1, initialValue = 100)
+@NamedQueries({ @NamedQuery(name = "Formation.findAll", query = "select f from Formation f"),
+		@NamedQuery(name = "Formation.setReferentToNull", query = "update Formation f set f.referent=null where f.referent=:referent"),
+		@NamedQuery(name = "Formation.deleteByReferent", query = "delete from Formation f where f.referent=:referent") })
 public class Formation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqFormation")
@@ -42,6 +47,7 @@ public class Formation {
 	private Salle salle;
 	@OneToMany(mappedBy = "id.formation")
 	private Set<ModuleFormation> modulesformation;
+
 	public Formation() {
 
 	}
@@ -94,8 +100,6 @@ public class Formation {
 	public void setSalle(Salle salle) {
 		this.salle = salle;
 	}
-	
-	
 
 	public Set<ModuleFormation> getModulesformation() {
 		return modulesformation;
