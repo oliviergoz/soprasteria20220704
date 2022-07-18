@@ -23,7 +23,7 @@ import javax.persistence.Transient;
 @Table(name = "commande")
 @SequenceGenerator(name = "seqCommande", sequenceName = "seq_commande", initialValue = 100, allocationSize = 1)
 @NamedQueries({
-		@NamedQuery(name = "Commande.findByIdWithLignes", query = "select c from Commande c left join fetch c.lignes where c.id=:id") })
+		@NamedQuery(name = "Commande.findByIdWithLignes", query = "select c from Commande c left join fetch c.lignes left join fetch c.client where c.id=:id") })
 public class Commande {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqCommande")
