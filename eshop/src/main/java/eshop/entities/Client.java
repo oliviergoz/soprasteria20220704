@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -21,6 +23,12 @@ import javax.persistence.Table;
 @AttributeOverrides({ @AttributeOverride(name = "prenom", column = @Column(name = "client_prenom", length = 255)),
 		@AttributeOverride(name = "nom", column = @Column(name = "client_nom", length = 255)),
 		@AttributeOverride(name = "mail", column = @Column(name = "client_mail", length = 255)) })
+
+@NamedQueries({
+		@NamedQuery(name = "Client.findByKeyWithCommandes", query = "select c from Client c left join fetch c.commandes where c.id=:id"),
+		@NamedQuery(name = "Client.findByIdWithCommandesDetails", query = "select c from Client c left join fetch c.commandes as commande left join fetch commande.lignes where c.id=:id"),
+		@NamedQuery(name = "Client.findByNomContaining", query = "select c from Client c where c.nom like :texte "),
+		@NamedQuery(name = "Client.findByNomContainingWithCommandes", query = "select c from Client c left join fetch c.commandes where c.nom like :texte ") })
 public class Client extends Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
