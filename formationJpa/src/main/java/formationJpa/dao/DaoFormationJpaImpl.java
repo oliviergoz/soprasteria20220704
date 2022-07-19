@@ -1,6 +1,5 @@
 package formationJpa.dao;
 
-import java.text.Normalizer.Form;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -72,6 +71,7 @@ class DaoFormationJpaImpl implements DaoFormation {
 		return list;
 	}
 
+<<<<<<< Updated upstream
 	public List<Formation> demoJpql() {
 		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
 		// String requete = "select f from Formation f where f.referent=:formateur";
@@ -80,27 +80,61 @@ class DaoFormationJpaImpl implements DaoFormation {
 //		Formateur f = new Formateur();
 //		f.setId(100L);
 		// query.setParameter("formateur", f);
+=======
+	/*	manipulation d'objet au lieu de lignes/tables en SQL
+	 * 	en gros : select * from ENTITE alias (correspond à une instance)
+	 * donc pour une fomation = "select f from Formation f"
+	 */
+	public List<Formation> demoJpql() {
+		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
+//		String requete="select f from Formation f where f.nom like '%a%' ";
+//		String requete="select f from Formation f where f.nom like :nom ";
+		String requete="select f from Formation f where f.referent=:formateur ";
+		TypedQuery<Formation> query = em.createQuery(requete, Formation.class);
+//		query.setParameter("nom", "%a%");
+		Formateur f = new Formateur();
+		f.setId(100L);
+		query.setParameter("formateur", f);
+>>>>>>> Stashed changes
 		List<Formation> list = query.getResultList();
 		em.close();
 		return list;
 	}
+<<<<<<< Updated upstream
 
 	public void setReferentToNull(Formateur formateur) {
 		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		Query query = em.createNamedQuery("Formation.setReferentToNull");
+=======
+	
+	public void setReferentNoNull(Formateur formateur) {
+		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		javax.persistence.Query query = em.createNamedQuery("Formation.setReferentNoNull");
+>>>>>>> Stashed changes
 		query.setParameter("referent", formateur);
 		query.executeUpdate();
 		tx.commit();
 		em.close();
 	}
+<<<<<<< Updated upstream
 
 	public void deleteByReferent(Formateur formateur) {
 		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		Query query = em.createNamedQuery("Formation.deleteByReferent");
+=======
+	
+	public void deleteByReferent (Formateur formateur) {
+		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		javax.persistence.Query query = em.createNamedQuery("Formation.deleteByReferent");
+>>>>>>> Stashed changes
 		query.setParameter("referent", formateur);
 		query.executeUpdate();
 		tx.commit();

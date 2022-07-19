@@ -1,36 +1,17 @@
 package formationJpa;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 import formationJpa.dao.DaoFormation;
 import formationJpa.dao.DaoFormationFactory;
 import formationJpa.dao.DaoModule;
 import formationJpa.dao.DaoModuleFactory;
-import formationJpa.dao.DaoModuleFormation;
-import formationJpa.dao.DaoModuleFormationFactory;
-import formationJpa.dao.DaoOrdinateur;
-import formationJpa.dao.DaoOrdinateurFactory;
 import formationJpa.dao.DaoPersonne;
 import formationJpa.dao.DaoPersonneFactory;
 import formationJpa.entities.Adresse;
 import formationJpa.entities.Civilte;
 import formationJpa.entities.Formateur;
 import formationJpa.entities.Formation;
-import formationJpa.entities.Module;
-import formationJpa.entities.ModuleFormation;
-import formationJpa.entities.ModuleFormationKey;
-import formationJpa.entities.Ordinateur;
-import formationJpa.entities.Personne;
-import formationJpa.entities.Ram;
-import formationJpa.entities.Stagiaire;
 import formationJpa.util.Context;
 
 public class ConfigJpaTest {

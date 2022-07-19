@@ -86,7 +86,7 @@ class DaoPersonneJpaImpl implements DaoPersonne {
 	public List<Formateur> findAllFormateur() {
 		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
 		// Query query=em.createQuery("from Personne p");
-		TypedQuery<Formateur> query = em.createQuery("from Formateur p", Formateur.class);
+		TypedQuery<Formateur> query = em.createQuery("from Formateur f", Formateur.class);
 		List<Formateur> list = query.getResultList();
 		em.close();
 		return list;
