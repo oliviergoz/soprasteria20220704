@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- definition les beans geres par Spring -->
+	<bean id="olivier" class="formationSpring.beans.Personne">
+		<property name="prenom" value="olivier"></property>
+		<property name="adresse" ref="paris"></property>
+	</bean>
+
+	<bean id="yassine" class="formationSpring.beans.Personne">
+		<property name="prenom" value="yassine"></property>
+		<property name="adresse">
+			<bean class="formationSpring.beans.Adresse">
+				<property name="adresse" value="une autre adresse"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="paris" class="formationSpring.beans.Adresse">
+		<property name="adresse" value="une adresse a paris"></property>
+	</bean>
+
+</beans>
+
+
+
+
+	
+
+
+
