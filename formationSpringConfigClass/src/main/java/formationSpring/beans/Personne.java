@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("olivier")
-public class Personne implements IPersonne {
-	private String prenom;
+public class Personne implements IPersonne, Presentation {
+	private String prenom = "olivier";
 	@Autowired
 	@Qualifier("lille")
 	private Adresse adresse;
@@ -29,6 +29,13 @@ public class Personne implements IPersonne {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+	@Override
+	public String sePresenter() {
+		System.out.println("dans la methode se presenter");
+		//throw new IllegalArgumentException("une execption");
+		return "bonjour je m'appelle " + getPrenom();
 	}
 
 }
