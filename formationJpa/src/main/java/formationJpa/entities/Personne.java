@@ -75,14 +75,6 @@ public abstract class Personne {
 		this.nom = nom;
 	}
 
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
-	}
-
 	public Civilte getCivilite() {
 		return civilite;
 	}

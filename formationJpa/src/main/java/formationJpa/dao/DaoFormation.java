@@ -11,4 +11,5 @@ public interface DaoFormation extends DaoGeneric<Formation, Long> {
 	public void setReferentToNull(Formateur formateur);
 
 	public void deleteByReferent(Formateur formateur);
+	
 }
