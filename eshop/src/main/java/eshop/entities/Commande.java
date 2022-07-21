@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "commande")
@@ -36,6 +37,8 @@ public class Commande {
 	private Client client;
 	@OneToMany(mappedBy = "id.commande")
 	private Set<LigneCommande> lignes;
+	@Version
+	private int version;
 
 	public Commande() {
 
@@ -76,6 +79,14 @@ public class Commande {
 
 	public void setLignes(Set<LigneCommande> lignes) {
 		this.lignes = lignes;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override

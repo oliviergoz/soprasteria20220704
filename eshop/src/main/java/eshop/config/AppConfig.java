@@ -19,7 +19,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
-@ComponentScan(basePackages = "eshop.dao")
+@ComponentScan(basePackages = {"eshop.dao","eshop.services"})
 @PropertySource("classpath:config.properties")
 @EnableJpaRepositories(basePackages = "eshop.repositories")
 public class AppConfig {

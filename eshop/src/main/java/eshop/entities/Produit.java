@@ -16,29 +16,31 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "produit")
 @SequenceGenerator(name = "seqProduit", sequenceName = "seq_produit", initialValue = 100, allocationSize = 1)
 @NamedQueries({
-	@NamedQuery(name="Produit.findByFournisseur",query = "select p from Produit p where p.fournisseur=:fournisseur")
-})
+		@NamedQuery(name = "Produit.findByFournisseur", query = "select p from Produit p where p.fournisseur=:fournisseur") })
 public class Produit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqProduit")
-	@Column(name="produit_id")
+	@Column(name = "produit_id")
 	private Long id;
-	@Column(name="produit_libelle",length = 150)
+	@Column(name = "produit_libelle", length = 150)
 	private String libelle;
-	@Column(name="produit_description",columnDefinition = "TEXT")
+	@Column(name = "produit_description", columnDefinition = "TEXT")
 	private String description;
-	@Column(name="produit_pu")
+	@Column(name = "produit_pu")
 	private double prixUnitaire;
 	@ManyToOne
-	@JoinColumn(name="produit_id_fournisseur",foreignKey = @ForeignKey(name="produit_produit_id_fournisseur_fk"))
+	@JoinColumn(name = "produit_id_fournisseur", foreignKey = @ForeignKey(name = "produit_produit_id_fournisseur_fk"))
 	private Fournisseur fournisseur;
 	@OneToMany(mappedBy = "id.produit")
 	private Set<LigneCommande> lignes;
+	@Version
+	private int version;
 
 	public Produit() {
 
@@ -97,6 +99,14 @@ public class Produit {
 
 	public void setLignes(Set<LigneCommande> lignes) {
 		this.lignes = lignes;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override
