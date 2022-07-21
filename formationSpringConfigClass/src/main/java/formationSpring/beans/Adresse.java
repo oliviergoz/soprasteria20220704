@@ -1,7 +1,5 @@
 package formationSpring.beans;
 
-import org.springframework.stereotype.Component;
-
 //@Component
 public class Adresse {
 	private String adresse;
