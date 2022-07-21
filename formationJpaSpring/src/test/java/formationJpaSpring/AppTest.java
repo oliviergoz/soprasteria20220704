@@ -10,7 +10,7 @@ public class AppTest {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 		DaoFormation daoFormation = ctx.getBean(DaoFormation.class);
-		daoFormation.findAll();
+		
 		ctx.close();
 	}
 
