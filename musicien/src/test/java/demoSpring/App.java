@@ -8,7 +8,7 @@ public class App {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
 		Musicien musicien = ctx.getBean("pianiste", Musicien.class);
-		System.out.println(musicien.perfom());
+		System.out.println(musicien.perform());
 		ctx.close();
 
 	}
