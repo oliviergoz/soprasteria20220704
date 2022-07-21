@@ -1,10 +1,13 @@
 package eshop.entities;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class Personne {
+	@Column(nullable = false)
 	private String prenom;
+	@Column(nullable = false)
 	private String nom;
 	private String mail;
 

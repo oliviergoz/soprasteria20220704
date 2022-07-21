@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "fournisseur")
@@ -41,6 +42,8 @@ public class Fournisseur {
 	private Adresse adresse;
 	@OneToMany(mappedBy = "fournisseur")
 	private List<Produit> produits;
+	@Version
+	private int version;
 
 	public Fournisseur() {
 
@@ -90,6 +93,14 @@ public class Fournisseur {
 
 	public void setProduits(List<Produit> produits) {
 		this.produits = produits;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override

@@ -16,6 +16,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "client")
@@ -42,6 +43,8 @@ public class Client extends Personne {
 	private Adresse adresse;
 	@OneToMany(mappedBy = "client")
 	private Set<Commande> commandes;
+	@Version
+	private int version;
 
 	public Client() {
 
@@ -74,6 +77,14 @@ public class Client extends Personne {
 
 	public void setCommandes(Set<Commande> commandes) {
 		this.commandes = commandes;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override
