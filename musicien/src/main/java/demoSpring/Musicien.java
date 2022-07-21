@@ -1,5 +1,5 @@
 package demoSpring;
 
 public interface Musicien {
-	String perfom();
+	String perform();
 }

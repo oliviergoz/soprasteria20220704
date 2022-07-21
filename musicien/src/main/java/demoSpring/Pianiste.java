@@ -11,7 +11,8 @@ public class Pianiste implements Musicien {
 	private Instrument instrument;
 
 	@Override
-	public String perfom() {
+	public String perform() {
+		System.out.println("le pianiste joue");
 		return "le pianiste joue, " + instrument.jouer();
 	}
 

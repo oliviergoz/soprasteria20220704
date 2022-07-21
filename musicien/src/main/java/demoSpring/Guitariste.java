@@ -11,8 +11,10 @@ public class Guitariste implements Musicien {
 	private Instrument instrument;
 
 	@Override
-	public String perfom() {
-		return "le guitariste joue," + instrument.jouer();
+	public String perform() {
+		System.out.println("le guitariste joue");
+		//return "le guitariste joue," + instrument.jouer();
+		throw new IllegalArgumentException();
 	}
 
 	public Instrument getInstrument() {
