@@ -1,11 +1,16 @@
 package eshop;
 
-import eshop.util.Context;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import eshop.config.AppConfig;
+import eshop.dao.DaoClient;
+import eshop.repositories.ClientRepository;
 
 public class AppTest {
 	public static void main(String[] args) {
-		Context.getEntityManagerFactory();
-
-		Context.destroy();
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+		ClientRepository clientRepo = ctx.getBean(ClientRepository.class);
+		clientRepo.findAll();
+		ctx.close();
 	}
 }
