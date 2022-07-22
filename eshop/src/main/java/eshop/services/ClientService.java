@@ -1,6 +1,7 @@
 package eshop.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,8 +35,17 @@ public class ClientService {
 		return create(client);
 	}
 
+	public List<Client> getByNom(String nom) {
+		return null;
+	}
+
 	public Client getById(Long id) {
-		return clientRepo.findById(id).orElseThrow(ClientException::new);
+		// return clientRepo.findById(id).orElseThrow(ClientException::new);
+		Optional<Client> opt = clientRepo.findById(id);
+		if (opt.isPresent()) {
+			return opt.get();
+		}
+		throw new ClientException();
 	}
 
 	public Client getByIdWithCommandes(Long id) {
