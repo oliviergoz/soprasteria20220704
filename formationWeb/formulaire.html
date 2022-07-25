@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<fieldset>
+		<legend>ma legende</legend>
+		<form action="" method="get">
+			<fieldset>
+				<legend>vos infos</legend>
+			<div>
+				<label for="prenom">prenom:</label><input type="text" id="prenom"
+					name="prenom" placeholder="saisir votre prenom">
+			</div>
+			<div>
+				<label for="nom">nom:</label> <input type="password" placeholder="saisir votre nom" id="nom" name="nom">
+			</div>
+			</fieldset>
+			<hr>
+			<div>
+				<label>sexe:<input type="checkbox" name="checkbox" value="toto">
+				</label>
+			</div>
+			<div>
+				<label for="homme">homme:</label>
+				<input type="radio" id="homme" name="sexe" value="homme">
+				<label for="femme">femme:</label>
+				<input type="radio" id="femme" name="sexe" value="femme">
+				<label for="non">non genre:</label>
+				<input type="radio" id="non" name="sexe" value="non genre">
+				<label for="inconnu">ne se prenonce pas:</label>
+				<input type="radio" id="inconnu" name="sexe" value="nc">
+			</div>
+			<div>
+				<label for="select">encore le sexe</label>
+				<select id="select" name="select">
+					<option value="h">homme</option>
+					<option value="f">femme</option>
+				</select>
+			</div>
+			<div>
+				<textarea rows="10" cols="75" name="texte">
+				</textarea>
+			</div>
+			<div>
+				<label for="demo">demo:</label><input type="hidden" id="demo"
+					name="demo" value="hidden" >
+			</div>
+			<div>
+				<button type="submit">envoyer</button>
+				<button type="reset">annuler</button>
+				<button>bouton</button>
+			</div>
+		</form>
+		</fieldset>
+	</div>
+</body>
+</html>
