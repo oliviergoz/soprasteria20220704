@@ -7,7 +7,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 		<title>Exo HTML/CSS/Bootstrap</title>
 	</head>
-	<body>
+	<body onclick="screamer('screamer')">
 		<nav>
 			<button onclick="nav('table')">Exo 1 Tableau</button>
 			<button onclick="nav('text')">Exo 2 Texte</button>
@@ -89,7 +89,10 @@
 			
 			<h2>Morbi ut sem</h2>
 			<img src="img1.jpg" title="image" alt="image"/>
-		</section>		
+		</section>	
+		<section id="screamer" class="mainsec" onclick="nav('table')">
+			<img src="https://wallpaperaccess.com/full/1147729.jpg" alt="" title="" draggable="false" ondragstart="return false" />
+		</section>
 	</body>
 	<style>
 		* {
@@ -114,17 +117,37 @@
 			font-size: 1em;
 			margin-bottom: 5em;
 		}
+		#screamer {
+			width: 100%;
+			height: 100%;
+		}
 	</style>
 	<script>
-		nav('text');
+		nav('table');
+		screamerLoop = 0;
 		function nav(p) {
 			let sections = document.getElementsByClassName('mainsec');
 			let x = document.getElementById(p);
+			
 			for (let i = 0; i < sections.length; i++) {
 				sections[i].style.display = 'none';
 			}
 			x.style.display = 'flex';
+			
 			console.log('coucou olivier');
+		}
+		
+		function screamer(p) {
+		let sections = document.getElementsByClassName('mainsec');
+		let x = document.getElementById('screamer');
+			if (screamerLoop == 0) {
+				let sections = document.getElementsByClassName('mainsec');
+				for (let i = 0; i < sections.length; i++) {
+					sections[i].style.display = 'none';
+				}
+				x.style.display = 'flex';
+				screamerLoop++;
+			}
 		}
 	</script>
 	<!-- <script src="main.js"></script> -->
