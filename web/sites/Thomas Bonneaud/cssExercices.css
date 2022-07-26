@@ -14,9 +14,9 @@ h4{
 }
 
 .justi-droite{
-	float: alignmentSide | right;
+	text-align : right;
 }
 
 .borderblack{
-	border : 1px solid black;
+	border : 2px;
 }
