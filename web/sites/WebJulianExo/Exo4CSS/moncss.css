@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.rouge_souligne {
+	color: red;
+	border-bottom: solid 1px red;
+	/* comentarios */
+}
+
+.verde_fondo_gris {
+	background-color: rgb(200, 200, 200);
+	color: green;
+}
+
+#right_alignment {
+	text-align: right;
+}
+
+.round_border {
+	border-radius: 250px;
+	background: black;
+	padding: 1px;
+	width: 200px;
+	height: 150px;
+}
+
+a:link { /*balise hypertexte*/
+	color: yellow;
+}
+
+a:visited {
+	color: pink;
+}
+
+a:hover { /*sobre el mouse*/
+	color: green;
+	border: solid 5px;
+}
+
+a:active { /*mientras estamos clicando */
+	color: rgb(200, 200, 200);
+	border: solid 1px;
+}
