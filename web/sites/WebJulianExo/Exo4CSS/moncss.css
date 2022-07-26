@@ -16,11 +16,16 @@
 }
 
 .round_border {
-	border-radius: 250px;
+	border-radius: 80%;
 	background: black;
 	padding: 1px;
 	width: 200px;
 	height: 150px;
+}
+
+.font_geante{
+	font-size: 40px
+	
 }
 
 a:link { /*balise hypertexte*/
