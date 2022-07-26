@@ -1,0 +1,24 @@
+.navbar {
+	padding-bottom: 0;
+}
+.bg-primary {
+	margin-top: 0!important;
+}
+.container {
+	
+}
+.container div:first-child {
+	background-color: var(--bs-indigo);
+}
+.container div:nth-child(2) {
+	background-color: var(--bs-orange);
+}
+.container div:nth-child(2) section aside:first-child, .container div:nth-child(2) section aside:last-child  {
+	background-color: var(--bs-red);
+}
+.container div:nth-child(2) section aside:nth-child(2), .container div:nth-child(2) section aside:nth-child(3)  {
+	background-color: var(--bs-yellow);
+}
+.container div:last-child {
+	background-color: var(--bs-cyan);
+}
