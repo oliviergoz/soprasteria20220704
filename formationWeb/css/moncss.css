@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+h1 {
+	color: white;
+	background-color: red;
+}
+
+.vert {
+	background-color: green;
+}
+
+#titre {
+	color: pink;
+}
+
+.bruce-banner {
+	height: 200px;
+	color: pink;
+	transition: all 5s ease-in;
+}
+
+.bruce-banner.hulk {
+	height: 400px;
+	color: green;
+}
+
+#usa+#mexique {
+	border: dashed 1px grey;
+}
+
+a:link {
+	color:red;
+}
+
+a:visited {
+	color:red
+}
+
+a:hover{
+	color:red;
+	border: solid 1px;
+	
+}
+
+a:active {
+	color:pink;
+	border: solid 1px;
+}
