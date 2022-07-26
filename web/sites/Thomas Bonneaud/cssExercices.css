@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+
+h2{
+	color:red;
+}
+
+h4{
+	color : green;
+	background-color : grey;
+}
+
+.grossir{
+	font-size : 50px;
+}
+
+.justi-droite{
+	text-align : right;
+}
+
+.borderblack{
+	border : 2px;
+}

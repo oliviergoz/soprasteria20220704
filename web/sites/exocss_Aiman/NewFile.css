@@ -1,0 +1,26 @@
+@charset "ISO-8859-1";
+
+
+body {
+  background-color: lightblue;
+}
+h3{
+	color:red;
+}
+h4{
+	color:green;
+}
+
+nav{
+	color:DodgerBlue;
+	font-size:500%;
+}
+h5{
+	color:green;
+	text-align: right;
+}
+
+img{
+	background-color:black;
+	border-radius:70%;
+}
