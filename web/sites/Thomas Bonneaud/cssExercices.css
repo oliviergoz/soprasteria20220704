@@ -9,12 +9,12 @@ h4{
 	background-color : grey;
 }
 
-.link{
-	size : 650px;
+.grossir{
+	font-size : 50px;
 }
 
 .justi-droite{
-	position : right;
+	float: alignmentSide | right;
 }
 
 .borderblack{
