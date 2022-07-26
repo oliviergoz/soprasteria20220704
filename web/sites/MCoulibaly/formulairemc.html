@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<form action="" method="post">
+			<fieldset>
+				<legend>Infos personnelles</legend>
+				<div>
+					<label for="email">Email:</label><input type="text" id="email"
+						name="email" placeholder="lorem@mail.fr">
+				</div>
+				<div>
+					<label for="password">Mot de passe:</label> <input type="password"
+						placeholder="*******" id="mdp" name="mdp">
+				</div>
+				<div>
+					<label for="select">Sexe</label> <select id="select" name="select">
+						<option value="h">Homme</option>
+						<option value="f">Femme</option>
+					</select>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Préférences</legend>
+				<div>
+					<label>Centres d'intérêts:<input type="checkbox"
+						name="sport" value="sport">Sport
+					</label><input type="checkbox" name="danse" value="danse"><label
+						for="danse">Danse<input type="checkbox" name="musique"
+						value="musique"></label><label for="musique">Musique</label>
+
+				</div>
+				<div>
+					<label for="Couleur">Couleur favorite</label> <input type="radio"
+						id="vert" name="couleur" value="vert"><label for="Vert">Vert</label>
+					<input type="radio" id="rouge" name="couleur" value="rouge">
+					<label for="rouge">Rouge</label><input type="radio" id="bleu"
+						name="couleur" value="bleu"><label for="bleu">Bleu</label>
+				</div>
+
+			</fieldset>
+			<fieldset>
+				<legend>Commentaire</legend>
+				<div>
+					<label for="commentaire">Message<textarea rows="10"
+							cols="75" name="commentaire"></textarea></label>
+
+				</div>
+
+
+
+				
+		</form>
+	</div>
+<div>
+					<button type="submit">Envoyer</button>
+
+				</div>
+</body>
+</html>
