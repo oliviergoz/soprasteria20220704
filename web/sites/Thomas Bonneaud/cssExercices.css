@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+
+h2{
+	color:red;
+}
+
+h4{
+	color : green;
+	background-color : grey;
+}
+
+.link{
+	size : 650px;
+}
+
+.justi-droite{
+	position : right;
+}
+
+.borderblack{
+	border : 1px solid black;
+}
