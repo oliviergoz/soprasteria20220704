@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+
+h2 {
+	color: red;
+	text-decoration: underline
+}
+span {text-decoration: underline;
+  font-size: 2.5em;
+  color : yellow
+}
+h4{
+	text-align: right
+}
+img {
+  width: 650px;
+  border: 1px solid black;
+}
+
+h3 {
+	color: blue;
+}
