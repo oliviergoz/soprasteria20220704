@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Site du Recensement des Monstres</title>
+</head>
+<body>
+	<div><h1>Recensement des Monstres</h1></div>
+	<div>
+		<fieldset>
+			<legend>Info Monstre</legend>
+			<form>
+				<div>
+					<label for="nom">Non du Monstre:</label> <input placeholder="Zinogre" id="nom" name="nom">
+				</div>
+				<div>
+					<label for="select">Sexe</label>
+					<select id="select" name="select">
+						<option value="m">Male</option>
+						<option value="f">Femelle</option>
+					</select>
+				</div>
+				<div><label for="birth">Date de naissance:</label>
+
+					<input type="date" id="birth" name="birth"
+					value="2018-07-22"
+					min="2018-01-01" max="2018-12-31">
+				</div>
+				<div>
+					<p>Couleur du Monstre</p>
+					<div>
+						<input type="color" id="head" name="head"
+						value="#e66465">
+						<label for="head">Tete</label>
+					</div>
+
+					<div>
+						<input type="color" id="body" name="body"
+						value="#f6b73c">
+						<label for="body">Corps</label>
+					</div>
+
+					<div>
+						<input type="color" id="tail" name="tail"
+						value="#9C01C0">
+						<label for="tail">Queue</label>
+					</div>
+
+				</div>
+			</form>
+
+		</fieldset>
+
+		<fieldset>
+			<legend>Attributs</legend>
+			<form >
+				<legend>Indiquer les attributs de votre monstre :</legend>
+
+				<div>
+					<input type="checkbox" id="fang" name="fang"
+					checked>
+					<label for="fang">Crocs</label>
+				</div>
+
+				<div>
+					<input type="checkbox" id="horns" name="horns">
+					<label for="horns">Corne</label>
+				</div>
+
+				<div>
+					<input type="checkbox" id="claws" name="claws"
+					checked>
+					<label for="claws">Griffe</label>
+				</div>
+
+				<div>
+					<input type="checkbox" id="sclaes" name="sclaes">
+					<label for="sclaes">Ecailles</label>
+				</div>
+			</form>
+
+		</fieldset>
+
+		<fieldset>
+			<legend>Description</legend>
+			<form>
+				<legend>Decrivez votre Monstre :</legend>
+				<div>
+					<textarea rows="10" cols="75" name="texte">
+					</textarea>
+				</div>
+				<div>
+					<button type="submit">envoyer</button>
+				</div>
+			</form>
+
+		</fieldset>
+	</div>
+</body>
+</html>

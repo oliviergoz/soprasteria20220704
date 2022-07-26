@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<fieldset>
+		<legend>Inscription</legend>
+		<form action="" method="get">
+			<fieldset>
+				<legend>Informations personnelles</legend>
+			<div>
+				<label for="Email">Courriel:</label><input type="text" id="Email"
+					name="Email" placeholder="jeanChien@mail.com">
+			</div>
+			<div>
+				<label for="mdp">Mot de passe:</label> <input type="password" placeholder="********" id="mdp" name="mdp">
+			</div>
+			<div>
+				<label for="select">Sexe</label>
+				<select id="select" name="select">
+					<option value="h">homme</option>
+					<option value="f">femme</option>
+				</select>
+			</div>
+			<div>
+				<label for="birth">Date de Naissance:</label>
+
+				<input type="date" id="birth" name="birthday"
+     					  value="1970-01-01">
+
+			</div>
+			
+			</fieldset>
+			<legend>Préferences</legend>
+			<hr>
+			
+			<div>
+				Couleur favorite :
+				<label for="Rouge">Rouge</label>
+				<input type="radio" id="homme" name="couleur" value="Rouge">
+				<label for="Femme">Vert</label>
+				<input type="radio" id="femme" name="couleur" value="Vert">
+				<label for="Noir">Noir</label>
+				<input type="radio" id="non" name="couleur" value="Noir">
+				<label for="inconnu">ne se prenonce pas:</label>
+				<input type="radio" id="inconnu" name="couleur" value="nc">
+			</div>
+			<div>
+				Passion :
+				<label>Sport<input type="checkbox" name="checkbox" value="Sport">
+				</label>
+				<label>Café<input type="checkbox" name="checkbox" value="Café">
+				</label>
+			</div>
+			</fieldset>
+			
+			<fieldset>
+			<legend>Commentaires</legend>
+			<div>
+				Messages aux Admins :
+				<textarea rows="10" cols="75" name="texte">
+				</textarea>
+			</div>
+			<div>
+				<label for="demo">Envoyer ou Non:</label><input type="hidden" id="demo"
+					name="demo" value="hidden" >
+			</div>
+			<div>
+				<button type="submit">envoyer</button>
+				<button type="reset">annuler</button>
+				<button>bouton</button>
+			</div>
+			</fieldset>
+		</form>
+		
+	</div>
+</body>
+</html>
