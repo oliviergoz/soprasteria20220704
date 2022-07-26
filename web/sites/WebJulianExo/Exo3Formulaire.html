@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<form action="" method="get">
+			<fieldset>
+				<legend>Informations personnelles</legend>
+				<div>
+					<table>
+
+						<tr>
+							<td><label for="emai">Email</label></td>
+							<td><input id="emai" name="mail"></td>
+						</tr>
+
+						<tr>
+							<td><label for="nom">Mot de passe</label></td>
+							<td><input type="password" id="nom" name="nom"></td>
+						</tr>
+						<tr>
+							<td><label for="select">Sexe</label></td>
+							<td><select id="select" name="sex">
+									<option value="h">homme</option>
+									<option value="f">femme</option>
+							</select></td>
+						</tr>
+
+						<tr>
+							<td><label for="date">Date de naissance</label></td>
+							<td><input type="date" id="date" name="date"></td>
+						</tr>
+
+					</table>
+				</div>
+			</fieldset>
+			<div>
+				<fieldset>
+					<legend>Préférences</legend>
+					<div>
+						Couleur favorite <label for="r"> Rouge</label><input type="radio"
+							id="r" name="couleur" value="rouge"> <label for="v">Vert</label><input
+							type="radio" id="v" name="couleur" value="vert"> <label
+							for="b">Bleu</label><input type="radio" id="b" name="couleur"
+							value="bleu">
+					</div>
+
+					<div>
+						Centres d'intérêts <label for="sport"> Sport</label><input
+							type="checkbox" id="sport" name="interet" value="sport">
+						<label for="danse">Danse</label><input type="checkbox" id="danse"
+							name="interet" value="danse"> <label for="musique">Musique</label><input
+							type="checkbox" id="musique" name="interet" value="musique"><label
+							for="informatique">Informatique</label><input type="checkbox"
+							id="informatique" name="interet" value="informatique">
+					</div>
+				</fieldset>
+			</div>
+
+
+			<fieldset>
+				<legend>Comentaires</legend>
+				<div>
+					<table>
+						<tr>
+							<td><p>Message</p></td>
+							<td><p>
+									<textarea rows="5" cols="20" name="texte"></textarea>
+								</p></td>
+						</tr>
+					</table>
+				</div>
+			</fieldset>
+			<div>
+				<button type="submit">envoyer</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
