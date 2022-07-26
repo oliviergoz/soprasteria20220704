@@ -1,0 +1,29 @@
+h1 {
+	color: red;
+	border-bottom: solid 1px red;
+	font-size: 1.5em;
+}
+p[class~="green"] {
+	color: green;
+	font-weight: bold;
+}
+p[class~="bckggrey"] {
+	background-color: lightgrey;
+}
+p[class~="left"] {
+	text-align: left;
+}
+p[class~="right"] {
+	text-align: right;
+}
+a {
+	color: orange;
+	font-size: 3em;
+	font-weight: bold;
+}
+a:hover {
+	color: purple;
+}
+a:visited {
+	color: pink;
+}
