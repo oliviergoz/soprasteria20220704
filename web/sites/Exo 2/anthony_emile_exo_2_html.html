@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+		<meta charset="utf-8" />
+		<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+		<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+		<!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"> -->
+		<title>Exo HTML/CSS/Bootstrap</title>
+	</head>
+	<body>
+		<form method="post">
+			<fieldset>
+				<legend>Informations personnelles</legend>
+				<table>
+					<tr>
+						<td>
+							<label for="form_input_email">Email</label>
+						</td>
+						<td>
+							<input type="mail" id="form_input_email" autocomplete="off" placeholder="lorem@gmail.com"/>
+						</td>
+					<tr>
+					<tr>
+						<td>
+							<label for="form_input_password">Mot de passe</label>
+						</td>
+						<td>
+							<input type="mail" id="form_input_password" autocomplete="off" placeholder="00000000000"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="form_input_sexe">Sexe</label>
+						</td>
+						<td>
+							<select id="form_input_sexe">Sexe
+						<option value="form_input_sexe_male">Homme</option>
+						<option value="form_input_sexe_female">Femme</option>
+						<option value="form_input_sexe_other">Autre</option>
+						<option value="form_input_sexe_none">Ne ce prononce pas</option>
+					</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="form_input_birthdate">Date de naissance</label>
+						</td>
+						<td>
+							<input type="date" id="form_input_email" autocomplete="off" placeholder="2000-01-01"/>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+			<fieldset>
+				<legend>Préférences</legend>
+					<table>
+						<tr>
+							<td>
+								<label for="">Couleur favorite</label>
+							</td>
+							<td>
+								<input type="radio" id="form_input_coulfav_red" autocomplete="off" name="form_input_coulfav">
+								<label for="form_input_coulfav_red">Rouge</label>
+							</td>
+							<td>
+								<input type="radio" id="form_input_coulfav_green" autocomplete="off" name="form_input_coulfav">
+								<label for="form_input_coulfav_green">Vert</label>
+							</td>
+							<td colspan="2">
+								<input type="radio" id="form_input_coulfav_blue" autocomplete="off" name="form_input_coulfav">
+								<label for="form_input_coulfav_blue">bleu</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="">Centes d'intérêts</label>
+							</td>
+							<td>
+								<input type="checkbox" id="form_input_hobbies_sport" autocomplete="off">
+								<label for="form_input_hobbies_sport">Sport</label>
+							</td>
+							<td>
+								<input type="checkbox" id="form_input_hobbies_dance" autocomplete="off">
+								<label for="form_input_hobbies_dance">Danse</label>
+							</td>
+							<td>
+								<input type="checkbox" id="form_input_hobbies_music" autocomplete="off">
+								<label for="form_input_hobbies_music">Musique</label>
+							</td>
+							<td>
+								<input type="checkbox" id="form_input_hobbies_informatics" autocomplete="off">
+								<label for="form_input_hobbies_informatics">Informatique</label>
+							</td>
+						</tr>
+					</table>
+			</fieldset>
+			<fieldset>
+				<legend>Commentaires</legend>
+				<div>
+					<label for="form_input_com">Message</label>
+					<textarea if="" autocomplete="off" placeholder=""></textarea>
+				</div>
+			</fieldset>
+			<button type="submit">Envoyer</button>
+		</form>
+	</body>
+</html>
