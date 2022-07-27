@@ -16,6 +16,10 @@ function guessNumber(){
     	result.innerHTML = 'VOUS AVEZ GAGNE'
     	document.getElementById('bguess').setAttribute("hidden","");
     	document.getElementById('replay').removeAttribute("hidden","");
+    }else if(guess.value < random){
+    	secret.value = 'Plus grand'
+    }else if(guess.value > random){
+    	secret.value = 'Plus petit'
     }
     if(tries == 0){
     	result.innerHTML = 'VOUS AVEZ PERDU'
