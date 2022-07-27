@@ -23,5 +23,8 @@ function calcul() {
 		let x = 3.14*input*input
 		alert(`Aire : ${x}`)
 	}
+	
+	
+	//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
 
 }
