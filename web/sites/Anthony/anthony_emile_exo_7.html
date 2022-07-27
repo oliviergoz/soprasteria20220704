@@ -88,6 +88,7 @@
 	<script>
 		let img = document.querySelector('#image');
 		let x = document.querySelector('#mySelect');
+		let y = document.querySelector('#title');
 		
 		function myFunction() {
 			let value = x.value;
@@ -98,11 +99,13 @@
 				img.src = 'imgs/' + value + '.gif';
 				img.title = value;
 				img.alt = value;
+				y.innerHTML = 'Aire de ' + value;
 			}
 			else {
 				img.src = '';
 				img.title = '';
 				img.alt = '';
+				y.innerHTML = 'Aire de ...'
 			}
 		}
 	</script>

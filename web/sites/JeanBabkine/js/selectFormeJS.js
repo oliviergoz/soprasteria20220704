@@ -1,6 +1,6 @@
 
  
-function changeForme(){
+function change(){
 	let forme=document.querySelector('#select').value;
 	document.querySelector('#image').src=`image/${forme}.gif`;	
 	document.querySelector('#titre').innerHTML=`Aire du ${forme}`
@@ -10,18 +10,21 @@ function changeForme(){
 
 
 function calcul() {
-	let input = document.querySelector('#nombre');
+	let input = document.querySelector('#calcul1');
 	let forme=document.querySelector('#select').value;
 	
 	if (forme == "carre") { 
-	document.querySelector('#Calcul1').innerHTML='c:'
-	document.querySelector('#Calcul2').innerHTML=' '
+		let x = input*input
+		alert(`Aire : ${x}`)
 	}
 	
 	
 	if (forme == "cercle") { 
-	document.querySelector('#Calcul1').innerHTML='r:'
-	document.querySelector('#Calcul2').innerHTML=' '
+		let x = 3.14*input*input
+		alert(`Aire : ${x}`)
 	}
+	
+	
+	//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
 
 }

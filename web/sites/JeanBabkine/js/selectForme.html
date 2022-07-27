@@ -10,7 +10,7 @@
 	<hr>
 	<table>
 		<tr>
-			<td><select id="select" size="6" onchange="changeForme()">
+			<td><select id="select" size="6" onchange="change()">
 					<option value="carre" selected="selected">carré</option>
 					<option value="cercle">cercle</option>
 					<option value="parallelogramme">parallelogramme</option>
@@ -21,8 +21,8 @@
 			<td><img id="image" src="image/carre.gif"></td>
 			
 			
-			<label id="Calcul1" for="calcul1">c:</label><input type="nombre" id="calcul1" name="calcul1" placeholder="">
-			<label id="Calcul2" for="calcul2"> </label><input type="nombre" id="calcul2" name="calcul2" placeholder="">
+			<input type="number" id="calcul1" >
+			<input type="number" id="calcul2" >
 			<button id="bouton" onclick="calcul()">envoyer</button>
 				
 		</tr>

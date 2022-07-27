@@ -1,37 +1,58 @@
 /**
  * 
  */
-let variable=10;
-console.debug('debug');
-console.log('log');
-console.warn('warn');
-console.error('error');
-let deuxFoisDeux = function() {
-	return 2 * 2;
+
+let images = ['carre', 'cercle', 'triangle', 'parallelo', 'trapeze', 'rectangle'];
+let textes = ['carré', 'cercle', 'triangle', 'parallélogramme', 'trapèze', 'rectangle'];
+
+let obj = { prenom: 'olivier', nom: 'gozlan' };
+console.log(obj);
+console.log(obj.prenom);
+
+let t = [obj, { prenom: 'toto', nom: 'tutu' }];
+console.log(t);
+
+//function somme(a, b) {
+//	return a + b;
+//}
+
+//let somme = function(a, b) {
+//	return a + b;
+//}
+
+//let somme = (a, b) => {
+//	return a + b;
+//}
+
+
+let retourSetTimout=setTimeout(() => {
+	console.log('hello world');
+}, 2000);
+let stopInterval=0;
+let retourSetInterval=setInterval(()=>{
+	console.log('hello');
+	stopInterval++;
+	if(stopInterval==5){
+		clearInterval(retourSetInterval);
+	}
+},3000);
+
+function changeImage() {
+	let index = document.querySelector('#forme').value;
+	document.querySelector('#image').src = `images/${images[index]}.gif`;
+
+	document.querySelector('#titre').innerHTML = `Aire du ${textes[index]}`;
+	console.log('onchange');
 }
 
-console.log(deuxFoisDeux());
-console.log(deuxFoisDeux);
-
-function foisDeux(arg, afficher) {
-	afficher(arg * 2);
+function myClick() {
+	console.log('onclick');
 }
-foisDeux(8,console.log);
 
-foisDeux(3, function(arg) {
-	console.log('texte'+arg);
-});
 
-foisDeux(2,(arg)=>{
-	console.log(`la meme avec une lambda ${arg}`);
-});
-
-console.log(2=='2');
-console.log(2==='2');
-
-function monClick(){
-	let input=document.querySelector('#input');
+function monClick() {
+	let input = document.querySelector('#input');
 	//console.log(document.querySelector('#input').value);
 	//console.log(variable);
-	input.value=variable;
+	input.value = variable;
 }
