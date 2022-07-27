@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <!-- CSS only -->
 <title>Tic-Tac</title>
-<script type="text/javascript" src="js/tictacJS.js"></script>
+<script defer type="text/javascript" src="js/tictacJS.js"></script>
 </head>
-<body class="container">
+<body>
 	<div>
-		<p><b><time id="timer">00:01</time></b></p>
+		<p><h1 id="tictac">00:00</h1></p>
 		<div>
-		<button id="butt_start">Start</button>
-		<button id="butt_stop">Stop</button>
-		<button id="butt_reset">Reset</button>
+		<button id="start_button" onclick="click_start()">Start</button>
+		<button id="stop_button" onclick="click_stop()">Stop</button>
+		<button id="abbort_button" onclick="click_abbort()">Abbort</button>
 		</div>
 	</div>
 </body>
