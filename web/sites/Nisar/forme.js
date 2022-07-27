@@ -7,7 +7,7 @@ const shapeArray = ['carre.gif','cercle.gif','parallelo.gif','rectangle.gif','tr
 console.log(shapeArray[selectBox.value])
 
 function shapeSelect(){
-    img2.setAttribute('src',''+shapeArray[selectBox.value]+'')
+    img2.setAttribute('src',''+selectBox2.value+'.gif')
 }
 
 function shapeSelectArray(){
