@@ -17,12 +17,16 @@ function lauchGame() {
 	let value = y.value;
 	
 	if (value == number) {
-		x.value = 'Félicitation ! Vous avey trouvé le bon nombre !';
+		x.value = 'Félicitation ! Vous avez trouvé le bon nombre !';
 		y.value = '';
 		remain = 10;
 		let reset = setTimeout(loadingFunction, 3000);
-		/* loadingFunction(); */
-	} else {
+	} else if (value == '101') {
+		x.value = 'Easter Egg !!! Je suis le meilleur ! Eh ouais les mecs !';
+		y.value = ''
+		y.focus();
+	}
+		else {
 		remain--;
 		x.value = 'Perdu, vous n\'avez pas réussi à trouver le bon nombre. Il vous reste ' + remain + ' essais.';
 		y.value = ''
