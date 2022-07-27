@@ -33,8 +33,8 @@ function click_start() {
 running = setInterval(function(){
 	if (turn == true){
 		seconde++;
-		if (seconde >= 60) {
-			sececonde = 0;
+		if (seconde == 60) {
+			seconde = 0;
 			minute++;
 		}
 		tictac.innerHTML = (minute > 9 ? minute : '0' + minute) + ':' + (seconde > 9 ? seconde : '0' + seconde);
