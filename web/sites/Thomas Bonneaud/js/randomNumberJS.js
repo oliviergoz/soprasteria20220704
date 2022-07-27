@@ -2,10 +2,10 @@
  * 
  */
 
-console.log('machin');
 let random = Math.floor(Math.random() * 101);
 let attempt_rest_value = 10;
 let hint;
+console.log(random);
 
 function attempt() {
 	let choice = document.querySelector('#choice');
@@ -18,11 +18,12 @@ function attempt() {
 		else if (choice.value > random){
 			hint='Trop grand';
 		} else {
-			hint='Bravo';
+			hint='Bravo !';
 		}
 	} else {
 		hint='Perdu';
 	}
-	result_test = hint;
+	result_test.value = hint;
 	attempt_rest_value --;
+	attempt_rest.value=attempt_rest_value;
 }
