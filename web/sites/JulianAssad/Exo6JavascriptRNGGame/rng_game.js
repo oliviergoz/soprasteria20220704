@@ -34,7 +34,7 @@ function monClick() {
 	}
 
 	if (intentos == 0) {
-		myTexte = 'Tu as perdu';
+		myTexte = 'Tu as perdu, reponse:' + nombreRNG;
 		input2.value = myTexte;
 	}
 
