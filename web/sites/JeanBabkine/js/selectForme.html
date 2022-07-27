@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Les formes géometriques</title>
+<script type="text/javascript" src="selectFormeJS.js"></script>
+</head>
+<body>
+	<h1 id="titre">Aire du carre</h1>
+	<hr>
+	<table>
+		<tr>
+			<td><select id="select" size="6" onchange="changeForme()">
+					<option value="carre" selected="selected">carré</option>
+					<option value="cercle">cercle</option>
+					<option value="parallelogramme">parallelogramme</option>
+					<option value="rectangle">rectangle</option>
+					<option value="trapeze">trapeze</option>
+					<option value="triangle">triangle</option>
+			</select></td>
+			<td><img id="image" src="image/carre.gif"></td>
+			
+			
+			<label id="Calcul1" for="calcul1">c:</label><input type="nombre" id="calcul1" name="calcul1" placeholder="">
+			<label id="Calcul2" for="calcul2"> </label><input type="nombre" id="calcul2" name="calcul2" placeholder="">
+			<button id="bouton" onclick="calcul()">envoyer</button>
+				
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,16 +1,20 @@
 // JavaScript
 
-
+//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
 
 let nombre = Math.floor(Math.random() * 100) + 1;
 
 
-
 alert(`welcome to the game of jeanChien, le nombre est ${nombre}`)
 
-let reste = 2
+let input = document.querySelector('#essais');
+
+let reste = 10 
+
+
 
 function proposition() {
+	
 	let input = document.querySelector('#nombre'); //Choix du nombre
 	reste--;
 	if (input.value == nombre) {
