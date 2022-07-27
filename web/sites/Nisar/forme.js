@@ -4,8 +4,10 @@ img = document.getElementById('img');
 img2 = document.getElementById('img2');
 const shapeArray = ['carre.gif','cercle.gif','parallelo.gif','rectangle.gif','trapeze.gif','triangle.gif'];
 
+console.log(shapeArray[selectBox.value])
+
 function shapeSelect(){
-    img2.setAttribute('src',''+selectBox2.value+'.gif')
+    img2.setAttribute('src',''+shapeArray[selectBox.value]+'')
 }
 
 function shapeSelectArray(){
