@@ -1,7 +1,7 @@
 
  
 function change(){
-	
+	let forme=document.querySelector('#select').value;
 	document.querySelector('#image').src=`image/${forme}.gif`;	
 	document.querySelector('#titre').innerHTML=`Aire du ${forme}`
 	
