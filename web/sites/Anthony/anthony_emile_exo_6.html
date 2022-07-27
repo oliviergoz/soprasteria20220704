@@ -17,13 +17,21 @@
 				<p></p>
 				<div>
 					<label for="game_input">Proposition </label>
-					<input type="number" id="game_input" min="0" max="100" step="1" value="" autocomplete="off" placeholder="0" />
+					<input type="text" id="game_input" min="0" max="100" step="1" value="" autocomplete="off" placeholder="0" />
 				</div>
 				<div>
 					<button type="button" onclick="lauchGame()" class="btn btn-primary"><i class="fa-solid fa-person-running"></i> Lance le jeu</button>
 				</div>
+				<div class="container">
+					<div class="progress bg-light" id="game_barprogressMain">
+						<div class="progress-bar" id="game_barprogress"></div>
+					</div>
+				</div>
 				<div>
 					<input type="text" readonly required id="game_result"/>
+				</div>
+				<div>
+					<input type="text" readonly required id="game_clue"/>
 				</div>
 				<div>
 					<button type="button" onclick="mysteryNumber('display')" class="btn btn-danger" id="mysteryNbrBtn"><i class="fa-solid fa-eye"></i> Dévoiler le numbre mystère</button>
@@ -34,7 +42,7 @@
 			</article>
 		</section>
 	</body>
-	<script src="anthony_emile_exo_6.js"></script>
+	<!-- <script src="anthony_emile_exo_6.js"></script> -->
 	<style>
 		* {
 			box-sizing: border-box;
@@ -54,7 +62,7 @@
 		section {
 			width: 550px;
 			height: 350px;
-			height: 350px;
+			height: 425px;
 			border: solid 1px rgba(210,210,210,1);
 			border-radius: 6px;
 			overflow: hidden;
@@ -83,9 +91,11 @@
 			padding: .2em;
 		}
 		#game_input {
-			width: 4em;
+			width: 3em;
+			border: none;
+			background-color: rgba(250,250,250,1);
 		}
-		#game_result, #game_number {
+		#game_result, #game_number, #game_clue {
 			width: 100%;
 			font-size: .85em;
 			user-select: none;
@@ -94,6 +104,93 @@
 			padding-left: 1em;
 			border: none;
 			text-align: center;
+			margin: 0!important;
+		}
+		#game_barprogress {
+			top: 0;
+			left: 0;
+			height: 5px;
+			padding: 0;
+			margin: 0;
+		}
+		#game_barprogressMain {
+			width: 100%;
+			height: 5px;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
 		}
 	</style>
+	<script>
+		let x = document.querySelector('#game_result');
+		let y = document.querySelector('#game_input');
+		let z = document.querySelector('#game_number');
+		let a = document.querySelector('#mysteryNbrBtn');
+		let b = document.querySelector('#game_barprogress');
+		let c = document.querySelector('#game_clue');
+		let remain = 10;
+		let number = 0;
+		loadingFunction();
+
+		function loadingFunction() {
+			x.value = '';
+			y.focus();
+			number = Math.floor(Math.random() * 100);
+			mysteryNumber('hide');
+			b.style.width = '100%';
+			b.innherHTML = 10;
+			c.value = '';
+		}
+
+		function lauchGame() {
+			let value = y.value;
+			
+			if (value == number) {
+				x.value = 'Félicitation ! Vous avez trouvé le bon nombre !';
+				y.value = '';
+				c.value = '';
+				remain = 10;
+				let reset = setTimeout(loadingFunction, 3000);
+			} else if (value == '101') {
+				x.value = 'Easter Egg !!! Je suis le meilleur ! Eh ouais les mecs !';
+				c.value = 'Rho la la, tu ne t\'y addendais pas !';
+				y.value = ''
+				y.focus();
+			} else {
+				remain--;
+				b.style.width = remain + '0%';
+				if (remain == 0) {
+					x.value = 'Tu as Perdu. Tu est nul !';
+					c.value = '';
+					y.value = '';
+					remain = 10;
+					let reset = setTimeout(loadingFunction, 3000);
+				} else {
+					let clue = '';
+					if (y.value - number > 0) {
+						clue = 'Petit indice : plus petit';
+					} else {
+						clue = 'Petit indice : plus grand';
+					}
+					console.log(y.value - number);
+					
+					x.value = 'Perdu, vous n\'avez pas réussi à trouver le bon nombre. Il vous reste ' + remain + ' essais.';
+					y.value = ''
+					y.focus();
+					c.value = clue;
+				}
+			}
+		}
+
+		function mysteryNumber(p) {
+			if (p == 'hide') {
+				z.value = '***';
+				a.setAttribute('onclick','mysteryNumber("display")');
+			} else if (p == 'display') {
+				z.value = number;
+				a.setAttribute('onclick','mysteryNumber("hide")');
+			}
+		}
+	</script>
 </html>

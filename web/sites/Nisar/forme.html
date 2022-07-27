@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Exo List </title>
+	<script defer src="forme.js"></script>
+</head>
+<body>
+	<div style="border: 1px;color: black; border-style: solid;">
+		<h2>Version Avec Liste</h2>
+		<label for="shape">Choisir une forme</label>
+		<select id="shape" onchange="shapeSelectArray()">
+			<option value="0">carre</option>
+			<option value="1">cercle</option>
+			<option value="2">parallelo</option>
+			<option value="3">rectanle</option>
+			<option value="4">trapeze</option>
+			<option value="5">triangle</option>
+		</select>
+		<img id="img" src="carre.gif"/>
+	</div>
+	<br/>
+	<br/>
+	<br/>
+	<div style="border: 1px;color: black; border-style: solid;">
+		<h2>Version Sans Liste</h2>
+		<label for="shape2">Choisir une forme</label>
+		<select id="shape2" onchange="shapeSelect()">
+			<option value="carre">carre</option>
+			<option value="cercle">cercle</option>
+			<option value="parallelo">parallelo</option>
+			<option value="rectangle">rectanle</option>
+			<option value="trapeze">trapeze</option>
+			<option value="triangle">triangle</option>
+		</select>
+
+		<img id="img2" src="carre.gif"/>
+	</div>
+</body>
+</html>
