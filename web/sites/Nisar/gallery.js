@@ -35,9 +35,10 @@ function bAuto(){
 		document.getElementById('auto').innerHTML= 'Auto Slide'
 	}else{
 		paused = false;
+		document.getElementById('auto').innerHTML= 'Stop'
 	}
 	
-	document.getElementById('auto').innerHTML= 'Stop'
+	
 }
 
 
