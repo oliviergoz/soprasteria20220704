@@ -10,7 +10,7 @@
 	<div>
 		<p>
 		<label for"shape">Select your shape</label>
-		<select id="shape" name="shape">
+		<select id="shape" onchange="change()">
 				<option value="0">Carré</option>
 				<option value="1">Rectangle</option>
 				<option value="2">Cercle</option>
@@ -19,6 +19,6 @@
 	</div>
 	<div>
 		<p>Your shape :</p>
-		<img alt="" src="images_sources">
+		<img id="images" alt="" src="ressources/carre.gif">
 	</div>
 </body>
