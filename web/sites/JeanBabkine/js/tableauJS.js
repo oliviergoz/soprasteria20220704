@@ -3,6 +3,8 @@
 let json = [
 	{'nom':'café','prix':1},
 	{'nom':'PQ','prix':2},
+	{'nom':'salade','prix':0.5},
+	{'nom':'eau','prix':1.3},
 	{'nom':'3monts','prix':2.5}];
 
 
@@ -29,7 +31,7 @@ function createTableau() {
 		let col = document.createElement('td');
 		let col1 = document.createElement('td');
 		col.innerHTML=json[key].nom;
-		col1.innerHTML=json[key].prix;
+		col1.innerHTML=json[key].prix+'$';
 		lig.append(col);
 		lig.append(col1);
 		body.append(lig);
