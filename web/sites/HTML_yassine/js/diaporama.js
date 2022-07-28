@@ -28,15 +28,21 @@ function timer() {
 
 function firstImage(){
 	n=0;
+	clearTimeout(a);
+	timer();
 	document.getElementById("image").innerHTML = '<img height="400PX" src=img/'+images[n]+'>'
 	
 }
 function endImage(){
 	n=images.length-1;
+	clearTimeout(a);
+	timer();
 	document.getElementById("image").innerHTML = '<img height="400PX" src=img/'+images[n]+'>'
 
 }
 function lastImage(){
+	clearTimeout(a);
+	timer();
 	if(n==0){
 		n=0;
 	}
@@ -47,6 +53,8 @@ function lastImage(){
 
 }
 function nextImage(){
+	clearTimeout(a);
+	timer();
 	if(n==images.length-1){
 		n=0;
 	}
