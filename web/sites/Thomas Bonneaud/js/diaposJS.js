@@ -8,7 +8,9 @@ const images_sources = ['ressources/zac.jpg', 'ressources/ivern.jpg', 'ressource
 let index = 0;
 let turn = false;
 let restart;
+let stopAuto
 let maj;
+let theInterval;
 
 stop.disabled = true;
 
@@ -18,7 +20,7 @@ function maj_image() {
 
 function click_start() {
 	turn = true;
-	clearInterval(running);
+	clearInterval(theInterval);
 	restart = running();
 	stop.disabled = false;
 	start.disabled = true;
@@ -26,13 +28,13 @@ function click_start() {
 
 function click_stop() {
 	turn = false;
-	clearInterval(running);
+	clearInterval(theInterval);
 	stop.disabled = true;
 	start.disabled = false;
 }
 
 function running(){
-	return setInterval(() => {
+	return theInterval = setInterval(() => {
 	if (turn == true){
 		index++;
 		maj = maj_image();
@@ -51,7 +53,7 @@ function click_next(){
 	} else if (index <= 4 || index >= - 1) {
 		maj = maj_image();;
 	}
-	clearInterval(running);
+	clearInterval(theInterval);
 }
 
 function click_back(){
@@ -62,17 +64,17 @@ function click_back(){
 	} else if (index <= 4 || index >= - 1) {
 		maj = maj_image();;
 	}
-	clearInterval(running);
+	clearInterval(theInterval);
 }
 
 function click_first() {
 	index = 0;
 	maj = maj_image();;
-	clearInterval(running);
+	clearInterval(theInterval);
 }
 
 function click_last() {
 	index = 3;
 	maj = maj_image();;
-	clearInterval(running);
+	clearInterval(theInterval);
 }
