@@ -29,14 +29,14 @@ let t;
   }
 
 function clickstop(){
-    clearInterval(t);
+   clearInterval(t);
     start.disabled=false;
     }
     
 function clickreset(){
    clearInterval(t);
     start.disabled=false;
-    ms=0,s=0,mn=0,h=0;
+    ms=0,sec=0,min=0,hrs=0;
     spa[0].innerHTML=hrs+" hrs";
     spa[1].innerHTML=min+" min";
     spa[2].innerHTML=sec+" sec";
