@@ -38,8 +38,8 @@ function end(){
 
 	
 function play(){
-	timer();
 	
+	timer();
 }	
 
 function stop(){
@@ -48,10 +48,10 @@ function stop(){
 }
 
 function timer() {
-	t = setInterval(next, 1000);
+	t = setInterval(next,1000);
 	
 	//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
-	
+	//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
 }
 
 
