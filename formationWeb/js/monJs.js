@@ -2,6 +2,46 @@
  * 
  */
 
+
+//exercice compteur
+let sec = 0;
+let min = 0;
+let intervalCompteur;
+
+function play() {
+	changeButtonStatus();
+	intervalCompteur = startInterval();
+}
+
+function startInterval() {
+	return setInterval(() => {
+		sec++;
+		if (sec > 59) {
+			sec = 0;
+			min++;
+		}
+		document.querySelector('#h1').innerHTML = ((min < 10) ? '0' + min : min) + ':' + ((sec < 10) ? '0' + sec : sec);
+	}, 1000);
+}
+
+function pause() {
+	changeButtonStatus();
+	clearInterval(intervalCompteur);
+}
+
+function changeButtonStatus() {
+	document.querySelector('#play').disabled = !document.querySelector('#play').disabled;
+	document.querySelector('#pause').disabled = !document.querySelector('#pause').disabled;
+}
+
+function reset() {
+	sec =  0;
+	min = 0;
+	document.querySelector('#h1').innerHTML = ((min < 10) ? '0' + min : min) + ':' + ((sec < 10) ? '0' + sec : sec);
+	clearInterval(intervalCompteur);
+	intervalCompteur = startInterval();
+}
+
 let images = ['carre', 'cercle', 'triangle', 'parallelo', 'trapeze', 'rectangle'];
 let textes = ['carré', 'cercle', 'triangle', 'parallélogramme', 'trapèze', 'rectangle'];
 
@@ -25,17 +65,6 @@ console.log(t);
 //}
 
 
-let retourSetTimout=setTimeout(() => {
-	console.log('hello world');
-}, 2000);
-let stopInterval=0;
-let retourSetInterval=setInterval(()=>{
-	console.log('hello');
-	stopInterval++;
-	if(stopInterval==5){
-		clearInterval(retourSetInterval);
-	}
-},3000);
 
 function changeImage() {
 	let index = document.querySelector('#forme').value;
