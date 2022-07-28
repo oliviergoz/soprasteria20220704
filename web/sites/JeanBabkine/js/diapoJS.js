@@ -50,6 +50,8 @@ function stop(){
 function timer() {
 	t = setInterval(next, 1000);
 	
+	//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
+	
 }
 
 
