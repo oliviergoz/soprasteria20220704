@@ -1,6 +1,7 @@
 let alphabet =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 let mots = ['oignon', 'rouge', 'laurier', 'thym', 'daube', 'olive', 'paleron'];
 let randomWord = mots[Math.random()*mots.length|0];
+let pos;
 
 //fonctions au lancement
 function creation() {
@@ -26,13 +27,13 @@ function creationButton() {
 function hiddenWord() {
 	let decoupe = randomWord.slice(0);
 	for(letterWord of decoupe) 	{
+		pos++;
 		let caseLetterWord = document.createElement('input');
 		caseLetterWord.setAttribute('size','1');
-		caseLetterWord.id = letterWord;
-		caseLetterWord.value = letterWord;
+		caseLetterWord.id = letterWord;						//on récupérera l'ID comme valeur et ça fera le taff
+		caseLetterWord.value = '';							//on cache à la main
 		let div = document.getElementById('word');
-		caseLetterWord.readOnly = true;
 		div.append(caseLetterWord);
-		console.log(letterWord);
+		console.log(caseLetterWord.id);
 	};
 }
