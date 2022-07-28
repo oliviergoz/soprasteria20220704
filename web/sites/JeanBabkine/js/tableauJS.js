@@ -18,9 +18,13 @@ function createTableau() {
 	let tab=document.createElement('table');
 	tab.id='course';
 	let head=document.createElement('thead');
-	head.innerHTML="Mes courses";
+	let hTr=document.createElement('tr');
+	let hTh=document.createElement('th');
+	hTh.colspan="2";
+	hTh.innerHTML="Ma liste de course";
+	hTr.append(hTh);
+	head.append(hTr);
 	tab.append(head);
-	
 	let body=document.createElement('tbody');
 	
 	
