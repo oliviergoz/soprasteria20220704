@@ -14,6 +14,26 @@ if (imgAfficher < image.length - 1) {
 	}
 	dossierImage();
 }
+function dossierImage() {
+	document.querySelector('#diapo').src = `image/${image[imgAfficher]}.jpg`;
+}
+function changeStatut(){
+	document.querySelector('#play').disabled=!document.querySelector('#play').disabled;
+	document.querySelector('#pause').disabled=!document.querySelector('#pause').disabled;
+}
+function play(){
+	changeStatut();
+	intervalDiapo= setInterval(() => {
+		suivant();
+	}, 2000)
+}
+
+
+function pause() {
+	changeStatut();
+	clearInterval(intervalDiapo);
+	
+}
 
 function precedent() {
 
@@ -25,45 +45,23 @@ function precedent() {
 	}
 	dossierImage();
 }
-function dernierpage() {
 
-	imgAfficher = image.length - 1;
-	dossierImage();
-}
 
 function premierepage() {
 
 	imgAfficher = 0;
 	dossierImage();
 }
+function dernierepage() {
 
-
-function play(){
-	intervalDiapo= setInterval(() => {
-		next();
-	}, 2000)
-}
-function changeStatut(){
-	document.querySelector('#play').disabled=!document.querySelector('#play').disabled;
-	document.querySelector('#pause').disabled=!document.querySelector('#pause').disabled;
+	imgAfficher = image.length-1;
+	dossierImage();
 }
 
-function play() {
-	changeStatut();
-	intervalDiaporama = setInterval(() => {
-		suivant();
-	}, 3000)
-}
 
-function pause() {
-	changeStatut();
-	clearInterval(intervalDiapo);
-	
-}
 
-function dossierImage() {
-	document.querySelector('#diapo').src = `image/${image[imgAfficher]}.jpg`;
-}
+
+
 
 
 //var start = document.querySelector('play');
