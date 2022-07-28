@@ -51,6 +51,7 @@ function first() {
 }
 
 function automaticSlideShow() {
+	clearInterval(intervalDiaporama);
 	intervalDiaporama = setInterval(() => {
 		next();
 	}, 3000)
