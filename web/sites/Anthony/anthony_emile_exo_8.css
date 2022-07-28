@@ -1,0 +1,188 @@
+* {
+	box-sizing: border-box;
+	outline: none;
+	user-select: none;
+	font-family: calibri;
+}
+body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(230,230,230,1);
+}
+section {
+	width: 900px;
+	height: 500px;
+	border: solid 1px rgba(210,210,210,1);
+	border-radius: 6px;
+	overflow: hidden;
+	background-color: white;
+	padding: 1em;
+	outline: none;
+}
+section > div {
+	width: 100%;
+	height: auto;
+}
+div h1 {
+	margin: 0;
+	padding: 0;
+	padding-bottom: .5em;
+	font-size: 2em;
+	text-align: center;
+}
+section div:last-child {
+	height: calc(100% - 3.5em);
+	display: flex;
+	flex-direction: row;
+	justity-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+section div article:first-child {
+	width: 80%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-right: 1em;
+}
+section div article:last-child {
+	width: 20%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+section div article:last-child img {
+	width: 100%;
+	border-radius: 10px;
+}
+section div article:first-child div {
+	width: 100%;
+	height: auto;
+}
+#prop {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+#prop button {
+	display: inline-block;
+	font-size: 1.5em;
+	width: 1.5em;
+	height: 1.5em;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	background-color: rgba(250,250,250,1);
+	border: solid 1px rgba(180,180,180,1);
+	cursor: pointer;
+	margin: 3px;
+	border-radius: 6px;
+}
+#prop button:hover {
+	background-color: rgba(220,220,220,1);
+}
+#prop button:active {
+	background-color: rgba(186,222,239,1);
+}
+#prop button[class~='used'] {
+	color: rgba(150,150,150,1);
+	background-color: rgba(200,200,200,1);
+	cursor: default;
+}
+#clue {
+	width: 100%;
+	height: 3em;
+	margin: 1em 0;
+	font-size: 1.15em;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	color: rgba(88,88,88,1);
+}
+#mysteryword {
+	width: 100%;
+	height: 3em;
+	padding-left: 1px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+#mysteryword input {
+	display: inline-block;
+	font-size: 1.5em;
+	width: 1.5em;
+	height: 1.5em;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	background-color: rgba(250,250,250,1);
+	border: solid 1px rgba(180,180,180,1);
+	border-radius: 6px;
+	padding: .2em;
+	margin-left: -1px;
+	text-align: center;
+	z-index: 1;
+	cursor: default;
+}
+#mysteryword input[class="space"] {
+	border: solid 1px transparent;
+	z-index: 0;
+	background-color: transparent;
+}
+#mysteryword input[class="validate"] {
+	background-color: rgba(180,245,203,1);
+}
+#mysteryword input[class="invalidate"] {
+	background-color: rgba(245,180,180,1);
+}
+#relaunch {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	cvolor: rgba(44,44,44,1);
+}
+#relaunch:hover {
+	color: rgba(88,88,88,1);
+}
+#list {
+	display: flex;
+	flex-direction: center;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+#list button {
+	font-size: 1.35em;
+	margin: 0 2px;
+	cursor: pointer;
+	background-color: rgba(250,250,250,1);
+	border: solid 1px rgba(180,180,180,1);
+	border-radius: 6px;
+	padding: .1em .2em;
+}
+#list button:hover {
+	background-color: rgba(220,220,220,1);
+}
+#list button:active {
+	background-color: rgba(186,222,239,1);
+}
+#list button[class~="active"] {
+	background-color: rgba(186,222,239,1);
+}
