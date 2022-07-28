@@ -46,6 +46,13 @@ function createTableau(tri) {
 	document.querySelector('#div').append(tab);
 }
 
+
+function reset() {
+	document.querySelector('#nom').value = ' ';
+	document.querySelector('#prix').value = '0';
+	document.querySelector('#type').value = ' ';
+}
+
 /*
 
 
