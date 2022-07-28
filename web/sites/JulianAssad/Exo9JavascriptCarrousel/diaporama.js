@@ -13,7 +13,7 @@ let intervalDiaporama;
 
 function photoSource() {
 
-	document.querySelector('#diaporamax').src = `../images/${imageTab[imageNumber]}`;
+	document.querySelector('#diaporamax').src = `images/${imageTab[imageNumber]}`;
 }
 
 function next() {
