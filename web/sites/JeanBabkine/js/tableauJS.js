@@ -9,7 +9,12 @@ let json = [
 
 
 
- 
+ function add() {
+	let name = document.querySelector('#nom');
+ 	let price = document.querySelector('#prix');
+ 	let type = document.querySelector('#type');
+ 	json.push({'nom':name.value,'prix':price.value,'type':type.value});
+ }
 
 
 function createTableau(tri) {
