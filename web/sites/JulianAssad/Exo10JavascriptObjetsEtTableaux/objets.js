@@ -26,18 +26,21 @@ function create() {
 	tr1.innerHTML = 'produit';
 	tb.append(tr1);
 
-	let tr2 = document.createElement('tr');
-	tb.append(tr2);
 
-	let td1 = document.createElement('td');
-	td1.innerHTML = produits[0].nom;
-	tr2.append(td1);
+	for (let i = 0; i < produits.length; i++) {
+		
+		let tr2 = document.createElement('tr');
+		tb.append(tr2);
 
-	let td2 = document.createElement('td');
-	td2.innerHTML = produits[1].prix;
-	tr2.append(td2);
+		let td1 = document.createElement('td');
+		td1.innerHTML = produits[i].nom;
+		tr2.append(td1);
 
+		let td2 = document.createElement('td');
+		td2.innerHTML = produits[i].prix;
+		tr2.append(td2);
 
+	}
 
 
 	let div2 = document.createElement('div');
@@ -59,10 +62,6 @@ function create() {
 	b1.setAttribute("onclick", "addNewProducts()"); //esto crea un onclick en el boton
 	//b1.setAttribute("type", "submit");
 	div2.append(b1);
-
-
-
-
 	//	b1.addEventListener('click', (event) => {
 	//		console.log(event);
 	//	});
@@ -73,7 +72,7 @@ function addNewProducts() {
 
 	let input1 = document.querySelector('#nom');
 	let input2 = document.querySelector('#prix');
-	
+
 	let tab = document.querySelector('#table1');
 	let tr2 = document.createElement('tr');
 	tab.append(tr2);
@@ -85,7 +84,7 @@ function addNewProducts() {
 	let td2 = document.createElement('td');
 	td2.innerHTML = input2.value;
 	tr2.append(td2);
-	
+
 	console.log(input1.value);
 
 }
