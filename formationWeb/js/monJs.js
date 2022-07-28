@@ -2,15 +2,51 @@
  * 
  */
 
+//produits
+let produits = [{ nom: 'tele', prix: 500 }, { nom: 'telephone', prix: 300 }];
+
+function initProduits() {
+	for (let produit of produits) {
+		document.querySelector('#tbody').append(createTr(produit));
+	}
+}
+
+function createTr(produit) {
+	let tr = document.createElement('tr');
+	let tdNom = document.createElement('td');
+	tdNom.innerHTML = produit.nom;
+	let tdPrix = document.createElement('td');
+	tdPrix.innerHTML = produit.prix;
+	tr.append(tdNom);
+	tr.append(tdPrix);
+	return tr;
+}
+
+function ajouter() {
+	document.querySelector('#tbody')
+		.append(createTr(
+			{
+				nom: document.querySelector('#nom').value,
+				prix: document.querySelector('#prix').value
+			}));
+	resetProduit();
+}
+
+function resetProduit() {
+	document.querySelector('#nom').value = '';
+	document.querySelector('#prix').value = '0';
+}
+
+
 function create() {
 	//document.querySelector('#div').innerHTML =document.querySelector('#div').innerHTML+ '<h1>hello world</h1><div><h2>titre h2</h2><button onclick="alert(\'click\')">bouton</button></div>';
-	let div=document.createElement('div');
-	div.innerHTML="une div creee par le js";
-	div.id='maDiv';
-	let b1=document.createElement('button');
-	b1.innerHTML='bouton';
-	b1.id='b1';
-	b1.addEventListener('click',(event)=>{
+	let div = document.createElement('div');
+	div.innerHTML = "une div creee par le js";
+	div.id = 'maDiv';
+	let b1 = document.createElement('button');
+	b1.innerHTML = 'bouton';
+	b1.id = 'b1';
+	b1.addEventListener('click', (event) => {
 		console.log(event);
 	});
 	div.append(b1);

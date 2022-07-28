@@ -16,11 +16,10 @@ function create() {
 	div.id='maDiv';
 	let table=document.createElement('table');
 	table.id='table';
-	table.b
 	let tr=document.createElement('tr');
 	let nom=document.createElement('td');
 	let prix=document.createElement('td');
-	nom.innerHTML="nom";prix.innerHTML="prix";
+	nom.innerHTML="<b>nom</b>";prix.innerHTML="<b>prix</b>";
 	tr.append(nom);tr.append(prix);
 	table.append(tr);
 	let i=0;
@@ -42,10 +41,10 @@ function add(){
 	let inputNom=document.querySelector('#inputNom');
 	let inputPrix=document.querySelector('#inputPrix');
 	if(inputNom.value=='' || inputPrix.value==''){
-		alert('Veuilliez remplir tous les champs');
+		alert('veuillez remplir tous les champs');
 	}
 	else{
-		if(typeof inputPrix.value!=='string'){
+		if(isNaN(inputPrix.value)){
 			alert('le prix doit être un nombre')
 		}
 		else{
@@ -56,6 +55,7 @@ function add(){
 			tr.append(nom);tr.append(prix);
 			table.append(tr);
 			div.append(table);
+			
 		}
 	}
 	inputPrix.value='';

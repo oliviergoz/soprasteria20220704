@@ -31,7 +31,7 @@ function createTableau(tri) {
 	tab.append(head);
 	let body=document.createElement('tbody');
 	for (let key in json) {
-		if (json.hasOwnProperty(key)&&tri.includes(json[key].type)) {
+		if (json.hasOwnProperty(key)&&(tri.includes(json[key].type)||tri.includes('all'))) {
 		let lig = document.createElement('tr');
 		let col = document.createElement('td');
 		let col1 = document.createElement('td');
