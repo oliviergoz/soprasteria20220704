@@ -7,10 +7,14 @@ let last = document.getElementById('last_button');
 const images_sources = ['ressources/zac.jpg', 'ressources/ivern.jpg', 'ressources/evelynn.jpg', 'ressources/kayn.jpg'];
 let index = 0;
 let turn = false;
-let seconde = -1;
 let restart;
+let maj;
 
 stop.disabled = true;
+
+function maj_image() {
+	document.querySelector('#images').src=images_sources[index];
+}
 
 function click_start() {
 	turn = true;
@@ -31,7 +35,7 @@ function running(){
 	return setInterval(() => {
 	if (turn == true){
 		index++;
-		document.querySelector('#images').src=images_sources[index];
+		maj = maj_image();
 		if (index == 3){
 			index = -1;
 			}
@@ -43,9 +47,9 @@ function click_next(){
 	index ++;
 	if (index >= 4 || index <= - 1){
 		index = 0;
-		document.querySelector('#images').src=images_sources[index];
+		maj = maj_image();;
 	} else if (index <= 4 || index >= - 1) {
-		document.querySelector('#images').src=images_sources[index];
+		maj = maj_image();;
 	}
 	clearInterval(running);
 }
@@ -54,21 +58,21 @@ function click_back(){
 	index --;
 	if (index >= 4 || index <= - 1){
 		index = 3;
-		document.querySelector('#images').src=images_sources[index];
+		maj = maj_image();;
 	} else if (index <= 4 || index >= - 1) {
-		document.querySelector('#images').src=images_sources[index];
+		maj = maj_image();;
 	}
 	clearInterval(running);
 }
 
 function click_first() {
 	index = 0;
-	document.querySelector('#images').src=images_sources[index];
+	maj = maj_image();;
 	clearInterval(running);
 }
 
 function click_last() {
 	index = 3;
-	document.querySelector('#images').src=images_sources[index];
+	maj = maj_image();;
 	clearInterval(running);
 }
