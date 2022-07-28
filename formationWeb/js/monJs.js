@@ -2,6 +2,21 @@
  * 
  */
 
+function create() {
+	//document.querySelector('#div').innerHTML =document.querySelector('#div').innerHTML+ '<h1>hello world</h1><div><h2>titre h2</h2><button onclick="alert(\'click\')">bouton</button></div>';
+	let div=document.createElement('div');
+	div.innerHTML="une div creee par le js";
+	div.id='maDiv';
+	let b1=document.createElement('button');
+	b1.innerHTML='bouton';
+	b1.id='b1';
+	b1.addEventListener('click',(event)=>{
+		console.log(event);
+	});
+	div.append(b1);
+	document.querySelector('#div').append(div);
+}
+
 
 //exercice compteur
 let sec = 0;
@@ -35,7 +50,7 @@ function changeButtonStatus() {
 }
 
 function reset() {
-	sec =  0;
+	sec = 0;
 	min = 0;
 	document.querySelector('#h1').innerHTML = ((min < 10) ? '0' + min : min) + ':' + ((sec < 10) ? '0' + sec : sec);
 	clearInterval(intervalCompteur);
@@ -44,6 +59,60 @@ function reset() {
 
 let images = ['carre', 'cercle', 'triangle', 'parallelo', 'trapeze', 'rectangle'];
 let textes = ['carré', 'cercle', 'triangle', 'parallélogramme', 'trapèze', 'rectangle'];
+
+//exercice diapo
+let currentIndex = 0;
+let interval;
+function startDiapo() {
+	interval = setInterval(() => {
+		next();
+	}, 1000);
+}
+
+function stopDiapo() {
+	clearInterval(interval);
+}
+
+function next() {
+	stopDiapo();
+	if (currentIndex == images.length - 1) {
+		first();
+	} else {
+		currentIndex++;
+		loadImage();
+	}
+	startDiapo();
+}
+
+function previous() {
+	stopDiapo();
+	if (currentIndex = 0)  {
+		last();
+	} else {
+		currentIndex--;
+		loadImage();
+	}
+	startDiapo();
+}
+
+function first() {
+	stopDiapo();
+	currentIndex = 0;
+	loadImage();
+	startDiapo();
+}
+
+function last() {
+	stopDiapo();
+	currentIndex = images.length - 1;
+	loadImage();
+	startDiapo();
+}
+
+function loadImage() {
+	document.querySelector('#image').src = `images/${images[currentIndex]}.gif`;
+}
+
 
 let obj = { prenom: 'olivier', nom: 'gozlan' };
 console.log(obj);
