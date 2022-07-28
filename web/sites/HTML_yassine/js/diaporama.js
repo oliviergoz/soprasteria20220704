@@ -6,7 +6,7 @@ console.error('error');
 
 
 var images=['carre.gif','img1.jpg','cercle.gif','parallelo.gif','img1.png','rectangle.gif','img2.png','trapeze.gif','img3.png','triangle.gif'];
-let n=0;
+let n=-1;
 
 
 display();
@@ -43,11 +43,11 @@ function endImage(){
 function lastImage(){
 	clearTimeout(a);
 	timer();
-	if(n==0){
+	if(n<=1){
 		n=0;
 	}
 	else{
-		n+=1;;
+		n-=1;;
 	}
 	document.getElementById("image").innerHTML = '<img height="400PX" src=img/'+images[n]+'>'
 
