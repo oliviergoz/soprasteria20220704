@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="tableauJS.js"></script>
+<title>Tableau</title>
+</head>
+<body>
+	<div id="div"></div>
+	<button onclick="createTableau('alimentaire')">alimentaire</button>
+	<button onclick="createTableau('hygiene')">hygiene</button>
+	<button onclick="createTableau('alcool')">alcool</button>
+	<button onclick="createTableau('all')">All</button>
+	
+	<div>
+	<input id="nom" >
+	<input id="prix" type="number">
+	<input id="type">
+	<button onclick="add()">Add</button>
+	<button onclick="reset()">Annuler</button>
+	</div>
+</body>
+</html>

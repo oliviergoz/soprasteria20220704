@@ -1,0 +1,59 @@
+@charset "ISO-8859-1";
+
+div.relative{
+	position: relative;
+	left: 20px;
+}
+
+img.absolute0{
+	position: absolute;
+	top:390px;
+}
+img.absolute1{
+	position: absolute;
+	top:100px;
+}
+img.absolute2{
+	position: absolute;
+	top:100px;
+}
+img.absolute3{				/* fin echaf**/
+	position: absolute;
+	top:110px;
+	left:30px
+}
+img.absolute4{				/* corde**/
+	position: absolute;
+	top:110px;
+	left:100px
+}
+img.absolute5{				/* tete**/
+	position: absolute;
+	top:160px;
+	left:90px
+}
+img.absolute6{				/* corps**/
+	position: absolute;
+	top:190px;
+	left:85px
+}
+img.absolute7{				/* bg**/
+	position: absolute;
+	top:205px;
+	left:50px
+}
+img.absolute8{				/* bd**/
+	position: absolute;
+	top:205px;
+	left:120px
+}
+img.absolute9{				/* jg**/
+	position: absolute;
+	top:260px;
+	left:85px
+}
+img.absolute10{				/* jd**/
+	position: absolute;
+	top:260px;
+	left:115px
+}
