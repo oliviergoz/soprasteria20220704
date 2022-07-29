@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+img.pos0{
+	position: absolute;
+	top:390px;
+}
+img.pos1{
+	position: absolute;
+	top:100px;
+}
+img.pos2{
+	position: absolute;
+	top:100px;
+}
+img.pos3{				
+	position: absolute;
+	top:110px;
+	left:30px
+}
+img.pos4{				
+	position: absolute;
+	top:110px;
+	left:100px
+}
+img.pos5{				
+	position: absolute;
+	top:160px;
+	left:90px
+}
+img.pos6{				
+	position: absolute;
+	top:190px;
+	left:85px
+}
+img.pos7{				
+	position: absolute;
+	top:205px;
+	left:50px
+}
+img.pos8{				
+	position: absolute;
+	top:205px;
+	left:120px
+}
+img.pos9{				
+	position: absolute;
+	top:260px;
+	left:85px
+}
+img.pos10{				
+	position: absolute;
+	top:260px;
+	left:115px
+}
