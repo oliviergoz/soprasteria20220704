@@ -37,12 +37,13 @@ div h1 {
 	text-align: center;
 }
 section div:last-child {
-	height: calc(100% - 3.5em);
+	height: calc(100% - 6em);
 	display: flex;
 	flex-direction: row;
 	justity-content: center;
 	align-items: center;
 	flex-wrap: nowrap;
+	/* background-color: lightcoral; */
 }
 section div article:first-child {
 	width: 80%;
@@ -105,14 +106,17 @@ section div article:first-child div {
 }
 #clue {
 	width: 100%;
-	height: 3em;
+	height: 3.5em;
 	margin: 1em 0;
 	font-size: 1.15em;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	color: rgba(88,88,88,1);
+}
+#clue p {
+	margin: .5em 0;
 }
 #mysteryword {
 	width: 100%;
@@ -185,4 +189,23 @@ section div article:first-child div {
 }
 #list button[class~="active"] {
 	background-color: rgba(186,222,239,1);
+}
+#note {
+	width: 100%;
+	height: 2em;
+	margin-top: 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+#note p {
+	background-color: rgba(44,44,44,1);
+	font-size: 1.05em;
+	padding: .3em .5em;
+	border-radius: 1em;
+	color: white;
+}
+#note p i {
+	padding-right: .25em;
 }
