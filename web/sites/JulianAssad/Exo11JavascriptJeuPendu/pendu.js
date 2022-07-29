@@ -5,13 +5,20 @@
 //alert('Let the games begin');
 
 let alphabet = 'abcçdefghijklmnopqrstuvwxyz';
-let wordBank = ['anneaux', 'olivier'];
+let wordBank = ['anneaux', 'olivier', 'diaporama'];
+
+
 
 let intentosRestantes = 10;//el numero de imagenes
-
+let palabraDelJugador = [];
 
 
 function startGame() {
+
+	nombreRNG = Math.floor(Math.random() * (wordBank.length));
+
+	intentosRestantes = 10;//el numero de imagenes
+	palabraDelJugador = [];
 
 	createLayout();
 	createWordZone()
@@ -24,7 +31,9 @@ function startGame() {
 
 function createLayout() {
 
-	document.querySelector('#startgame').parentElement.remove();//borra a su padre, o sea el div
+	if (document.querySelector('#startgame')) {
+		document.querySelector('#startgame').parentElement.remove();//borra a su padre, o sea el div
+	}
 	let button;
 
 	for (let i = 0; i < alphabet.length; i++) {
@@ -37,8 +46,8 @@ function createLayout() {
 		button.id = `${alphabet[i]}`;
 		button.setAttribute('value', `${alphabet[i]}`);
 		button.setAttribute('onclick', `monClick('${alphabet[i]}')`); //preguntar a olivier si se puede poner una variable en html
-		document.querySelector('#gameDiv').append(button);
-		document.querySelector('#gameDiv').append(" ");
+		document.querySelector('#wordZone2').append(button);
+		document.querySelector('#wordZone2').append(" ");
 	}
 
 }
@@ -47,7 +56,7 @@ function createWordZone() {
 
 	let cell;
 
-	for (let i = 0; i < wordBank[0].length; i++) { //cambiar la condicion limite cambiar el 0 por un generador de numero aleatorio
+	for (let i = 0; i < wordBank[nombreRNG].length; i++) { //cambiar la condicion limite cambiar el 0 por un generador de numero aleatorio
 		cell = document.createElement('input');
 		cell.style.width = '30px';
 		cell.style.height = '30px';
@@ -60,6 +69,8 @@ function createWordZone() {
 	cell = document.createElement('input');
 	cell.setAttribute('disabled', '');
 	cell.id = `respuesta`;
+	cell.style.height = '30px';
+	cell.style.width = '300px';
 	document.querySelector('#wordZone').append(cell);
 
 
@@ -68,42 +79,106 @@ function createWordZone() {
 
 function monClick(letterReceived) {
 
-//	console.log(letterReceived);
-//	console.log(`#${intentosRestantes}`);
-	let palabra=''; //darle la longitud o ver como hacer append o solo hacerlo string y poner +   mejor tabelau de la long
+	//	console.log(letterReceived);
+	//	console.log(`#${intentosRestantes}`);
+	//darle la longitud o ver como hacer append o solo hacerlo string y poner +   mejor tabelau de la long
+
 	let cell;
 	let button = document.querySelector(`#${letterReceived}`);
 	button.setAttribute('disabled', ''); //opuesto => .removeAttribute('disabled')
 
-	for (let i = 0; i < wordBank[0].length; i++) { //AQUI TAMBIEN cambiar la condicion limite cambiar el 0 por un generador de numero aleatorio
+	palabraDelJugador.length = wordBank[nombreRNG].length; ///CAMBIAR
+
+
+	for (let i = 0; i < wordBank[nombreRNG].length; i++) { //AQUI TAMBIEN cambiar la condicion limite cambiar el 0 por un generador de numero aleatorio
 
 		cell = document.querySelector(`#letter${i}`);
 
-		if (letterReceived == wordBank[0][i]) {
+		if (letterReceived == wordBank[nombreRNG][i]) { ///
 			cell.setAttribute('value', letterReceived);
+			palabraDelJugador[i] = letterReceived;
+			console.log(palabraDelJugador);
 			//palabra=palabra+letterReceived; //a corregir
-			//console.log(palabra);
 		}
 	}
 
-	if (!wordBank[0].includes(letterReceived)) {
+	if (!wordBank[nombreRNG].includes(letterReceived)) {
 		document.querySelector(`#intento${intentosRestantes}`).setAttribute('style', 'visibility:visible');
-		intentosRestantes--;//aqui esta el pedo
+		intentosRestantes--;
 	}
 
-	if (intentosRestantes == 0) {
-		myTexte = 'Tu as perdu, reponse:' + wordBank[0];
+	if (intentosRestantes == -1) {
+		myTexte = 'Tu as perdu, reponse:' + wordBank[nombreRNG]; //CAMBIAR
 		document.querySelector('#respuesta').value = myTexte;
+
+		resetAll();
+
+		//funcion reset
+
 	}
 
-//tomar el imput de cada casilla y comparar con el string original, si coinciden, ganaste y llamas a reset
-//puedo hacerlo con un tableau
+	let sommeDeLettres = '';
+
+	for (let i = 0; i < palabraDelJugador.length; i++) {
+		sommeDeLettres = sommeDeLettres + `${palabraDelJugador[i]}`;
+	}
+
+	if (sommeDeLettres == wordBank[nombreRNG]) {
+		myTexte = 'Tu as GAGNE';
+		document.querySelector('#respuesta').value = myTexte;
+
+		resetAll();//funcionreset o mejor crear un boton
+
+	}
+
+	console.log(sommeDeLettres);
+
+
+	//tomar el imput de cada casilla y comparar con el string original, si coinciden, ganaste y llamas a reset
+	//puedo hacerlo con un tableau
 }
 
-function resetAll(){
-	
+function resetAll() {
+
+	let botonNuevo;
+
+	botonNuevo = document.createElement('button');
+	botonNuevo.id = `jugarDeNuevo`;
+	botonNuevo.innerHTML = `jugarDeNuevo`;
+	document.querySelector('#wordZone').append(botonNuevo);
+	botonNuevo.setAttribute('onclick', `reset()`);
+
+
+	for (i = 0; i < alphabet.length; i++) { //CAMBIAR WORDBANK
+		document.querySelector(`#${alphabet[i]}`).setAttribute('disabled', ''); //WORDBANK
+	}
+
+
+
+
 	//borrar todo, reinicializar variables y llamar a start();
 }
+
+function reset() {
+
+	document.querySelector('#wordZone').remove();
+
+	let div = document.createElement('div');
+	div.id = ('wordZone');
+	document.querySelector('#zonaDelMuerto').after(div);
+
+	div = document.createElement('div');
+	div.id = ('wordZone2');
+	document.querySelector('#wordZone').append(div);
+
+
+	for (i = 0; i <= 10; i++) {
+		document.querySelector(`#intento${i}`).setAttribute('style', 'visibility:hidden');
+	}
+	startGame();
+}
+
+
 
 //function createHangingSquare() { //muy complicado, me fui directo al html
 //
