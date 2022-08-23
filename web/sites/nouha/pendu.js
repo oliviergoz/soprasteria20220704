@@ -61,7 +61,7 @@
 					
 					if(!trouve){
 						coupsManques++;
-						document.img_pendu['pend'].src="img_pendu/pend_"+coupsManques+".gif"; 
+						document.img_pendu[pend].src="img_pendu/pend_"+coupsManques+".gif"; 
 						
 						if(coupsManques==3){
 							alert("Vous avez perdu !");

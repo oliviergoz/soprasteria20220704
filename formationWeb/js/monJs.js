@@ -23,12 +23,17 @@ function createTr(produit) {
 }
 
 function ajouter() {
+	let newTr = createTr(
+		{
+			nom: document.querySelector('#nom').value,
+			prix: document.querySelector('#prix').value
+		});
+	newTr.classList.add('table-secondary');
+	setTimeout(() => {
+		newTr.classList.remove('table-secondary');
+	}, 2000);
 	document.querySelector('#tbody')
-		.append(createTr(
-			{
-				nom: document.querySelector('#nom').value,
-				prix: document.querySelector('#prix').value
-			}));
+		.append(newTr);
 	resetProduit();
 }
 
