@@ -52,4 +52,8 @@ public class Adresse {
 		this.ville = ville;
 	}
 
+	public String getAdresseComplete() {
+		return numero + " " + rue + " " + codePostal + " " + ville;
+	}
+
 }
