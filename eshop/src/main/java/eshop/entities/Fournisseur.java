@@ -120,4 +120,8 @@ public class Fournisseur {
 		return Objects.equals(id, other.id);
 	}
 
+	public String getName() {
+		return id + " " + nom;
+	}
+
 }

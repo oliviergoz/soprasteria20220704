@@ -14,10 +14,16 @@ import eshop.entities.Client;
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
 	List<Client> findByPrenom(String prenom);
+
 	List<Client> findByPrenomContaining(String prenom);
-	List<Client> findByPrenomOrNom(String prenom,String nom);
-	List<Client> findByPrenomContainingOrNomContaining(String prenom,String nom);
+
+	List<Client> findByPrenomOrNom(String prenom, String nom);
+
+	List<Client> findByPrenomContainingOrNomContaining(String prenom, String nom);
+
+	@Query("select c from Client c left join fetch c.commandes where c.id=:id")
 	Optional<Client> findByKeyWithCommandes(@Param("id") Long id);
+
 	@Transactional
 	@Modifying
 	@Query("delete from Client c where c.adresse=:adresse")

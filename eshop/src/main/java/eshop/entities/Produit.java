@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "produit")
@@ -29,10 +31,12 @@ public class Produit {
 	@Column(name = "produit_id")
 	private Long id;
 	@Column(name = "produit_libelle", length = 150)
+	@NotEmpty(message = "mon message empty")
 	private String libelle;
 	@Column(name = "produit_description", columnDefinition = "TEXT")
 	private String description;
 	@Column(name = "produit_pu")
+	@DecimalMin(value = "0.1")
 	private double prixUnitaire;
 	@ManyToOne
 	@JoinColumn(name = "produit_id_fournisseur", foreignKey = @ForeignKey(name = "produit_produit_id_fournisseur_fk"))
