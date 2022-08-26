@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,16 +39,16 @@
 						<td>${client.nom}</td>
 						<td>${client.mail}</td>
 						<td>${client.adresse.adresseComplete}</td>
-						<td><a href="?q=edit&id=${client.id}"
+						<td><a href="${ctx}/client/edit/${client.id}"
 							class="btn btn-outline-primary">editer</a></td>
-						<td><a href="?q=delete&id=${client.id}"
+						<td><a href="${ctx}/client/delete/${client.id}"
 							class="btn btn-outline-danger">supprimer</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 		<div>
-			<a href="?q=add" class="btn btn-link">nouveau client</a>
+			<a href="${ctx}/client/add" class="btn btn-link">nouveau client</a>
 		</div>
 	</div>
 </body>
