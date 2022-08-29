@@ -1,5 +1,7 @@
 package formationSpringMvc.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class FirstController {
 
 	@RequestMapping(path = "/hello", method = RequestMethod.GET)
-	public String hello(@RequestParam String prenom,Model model) {
+	public String hello(@RequestParam String prenom,Model model,HttpSession session) {
 		model.addAttribute("prenom", prenom);
 		return "hello";
 	}

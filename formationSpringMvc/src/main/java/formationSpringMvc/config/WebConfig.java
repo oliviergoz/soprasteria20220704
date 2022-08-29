@@ -14,7 +14,7 @@ import eshop.config.AppConfig;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({ "formationSpringMvc.controller" })
+@ComponentScan({ "formationSpringMvc.controller","formationSpringMvc.restController" })
 @Import(AppConfig.class)
 public class WebConfig implements WebMvcConfigurer {
 
