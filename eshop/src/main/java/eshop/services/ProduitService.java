@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import eshop.entities.Fournisseur;
 import eshop.entities.Produit;
 import eshop.exceptions.ProduitException;
 import eshop.repositories.ProduitRepository;
@@ -13,8 +14,15 @@ import eshop.repositories.ProduitRepository;
 public class ProduitService {
 	@Autowired
 	private ProduitRepository produitRepo;
+	@Autowired
+	private FournisseurService fournisseurService;
 
 	public Produit create(Produit produit) {
+		Fournisseur fournisseur = produit.getFournisseur();
+		if (fournisseur != null) {
+			fournisseur = fournisseurService.getById(fournisseur.getId());
+			produit.setFournisseur(fournisseur);
+		}
 		return produitRepo.save(produit);
 	}
 
@@ -27,7 +35,11 @@ public class ProduitService {
 		produitEnBase.setLibelle(produit.getLibelle());
 		produitEnBase.setPrixUnitaire(produit.getPrixUnitaire());
 		produitEnBase.setDescription(produit.getDescription());
-		produitEnBase.setFournisseur(produit.getFournisseur());
+		Fournisseur fournisseur = produit.getFournisseur();
+		if (fournisseur != null) {
+			fournisseur = fournisseurService.getById(fournisseur.getId());
+			produitEnBase.setFournisseur(fournisseur);
+		}
 		return produitRepo.save(produitEnBase);
 	}
 

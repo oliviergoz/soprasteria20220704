@@ -1,6 +1,10 @@
 package formationSpringMvc.restController;
 
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,5 +29,18 @@ public class DemoRestController {
 		societe.setNom("sss");
 		person.setSociete(societe);
 		return person;
+	}
+
+	@PostMapping("")
+	public void recuperationMap(@RequestBody Map<String, Object> map) {
+		map.forEach((k, v) -> {
+			System.out.println(k + ":" + v);
+			if (k.equals("json")) {
+				Map<String, Object> json = (Map<String, Object>) v;
+				json.forEach((key, value) -> {
+					System.out.println(key + "=>" + value);
+				});
+			}
+		});
 	}
 }
