@@ -20,24 +20,32 @@ import javax.persistence.Version;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "produit")
 @SequenceGenerator(name = "seqProduit", sequenceName = "seq_produit", initialValue = 100, allocationSize = 1)
 @NamedQueries({
 		@NamedQuery(name = "Produit.findByFournisseur", query = "select p from Produit p where p.fournisseur=:fournisseur") })
 public class Produit {
+	@JsonView({ JsonViews.Base.class })
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqProduit")
 	@Column(name = "produit_id")
 	private Long id;
+	@JsonView(JsonViews.Base.class)
 	@Column(name = "produit_libelle", length = 150)
 	@NotEmpty(message = "mon message empty")
 	private String libelle;
+	@JsonView({ JsonViews.Base.class })
 	@Column(name = "produit_description", columnDefinition = "TEXT")
 	private String description;
+	@JsonView(JsonViews.Base.class)
 	@Column(name = "produit_pu")
 	@DecimalMin(value = "0.1")
 	private double prixUnitaire;
+	@JsonView(JsonViews.ProduitWithFournisseur.class)
 	@ManyToOne
 	@JoinColumn(name = "produit_id_fournisseur", foreignKey = @ForeignKey(name = "produit_produit_id_fournisseur_fk"))
 	private Fournisseur fournisseur;

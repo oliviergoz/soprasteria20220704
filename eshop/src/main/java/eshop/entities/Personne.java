@@ -3,12 +3,17 @@ package eshop.entities;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @MappedSuperclass
 public abstract class Personne {
+	@JsonView(JsonViews.Base.class)
 	@Column(nullable = false)
 	private String prenom;
 	@Column(nullable = false)
+	@JsonView(JsonViews.Base.class)
 	private String nom;
+	@JsonView(JsonViews.Base.class)
 	private String mail;
 
 	public Personne() {
