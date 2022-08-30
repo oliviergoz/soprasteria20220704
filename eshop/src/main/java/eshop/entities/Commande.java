@@ -38,8 +38,10 @@ public class Commande {
 	private LocalDate date = LocalDate.now();
 	@ManyToOne
 	@JoinColumn(name = "commande_id_client", foreignKey = @ForeignKey(name = "commande_commande_id_client_fk"))
+	@JsonView(JsonViews.Commande.class)
 	private Client client;
 	@OneToMany(mappedBy = "id.commande")
+	@JsonView(JsonViews.CommandeDetails.class)
 	private Set<LigneCommande> lignes;
 	@Version
 	private int version;

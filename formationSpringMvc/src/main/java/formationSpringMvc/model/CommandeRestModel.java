@@ -1,10 +1,8 @@
 package formationSpringMvc.model;
 
 import java.util.List;
-import java.util.Map;
 
 import eshop.entities.Client;
-import eshop.entities.Produit;
 
 public class CommandeRestModel {
 	private List<ElementPanierRestModel> panier;

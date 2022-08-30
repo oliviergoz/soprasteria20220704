@@ -8,17 +8,20 @@ import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
-public class LigneCommandeKey implements Serializable{
+public class LigneCommandeKey implements Serializable {
 	@ManyToOne
-	@JoinColumn(name="ligne_commande_commande_id",foreignKey = @ForeignKey(name="ligne_commande_ligne_commande_commande_id_fk"))
+	@JoinColumn(name = "ligne_commande_commande_id", foreignKey = @ForeignKey(name = "ligne_commande_ligne_commande_commande_id_fk"))
 	private Commande commande;
 	@ManyToOne
-	@JoinColumn(name="ligne_commande_produit_id",foreignKey = @ForeignKey(name="ligne_commande_ligne_commande_produit_id_fk"))
+	@JoinColumn(name = "ligne_commande_produit_id", foreignKey = @ForeignKey(name = "ligne_commande_ligne_commande_produit_id_fk"))
+	@JsonView(JsonViews.CommandeDetails.class)
 	private Produit produit;
-	
+
 	public LigneCommandeKey() {
-		
+
 	}
 
 	public LigneCommandeKey(Commande commande, Produit produit) {
@@ -58,6 +61,5 @@ public class LigneCommandeKey implements Serializable{
 		LigneCommandeKey other = (LigneCommandeKey) obj;
 		return Objects.equals(commande, other.commande) && Objects.equals(produit, other.produit);
 	}
-	
-	
+
 }

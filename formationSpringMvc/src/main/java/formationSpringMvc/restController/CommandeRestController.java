@@ -5,6 +5,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,7 +37,7 @@ public class CommandeRestController {
 //	}
 
 	@PostMapping("")
-	@JsonView(JsonViews.Base.class)
+	@JsonView(JsonViews.Commande.class)
 	public Commande create(@RequestBody CommandeRestModel commande) {
 		return commandeService.create(
 				commande.getPanier().stream().collect(Collectors.toMap(e -> e.getProduit(), e -> e.getQuantite())),
@@ -44,9 +45,15 @@ public class CommandeRestController {
 	}
 
 	@PostMapping("/commande")
-	@JsonView(JsonViews.Base.class)
+	@JsonView(JsonViews.Commande.class)
 	public Commande create(@RequestBody Commande commande) {
 		return commandeService.create(commande);
+	}
+
+	@GetMapping("/{id}")
+	@JsonView(JsonViews.CommandeDetails.class)
+	public Commande getById(@PathVariable Long id) {
+		return commandeService.getById(id);
 	}
 
 }

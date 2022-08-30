@@ -11,6 +11,7 @@ import eshop.entities.Commande;
 import eshop.entities.LigneCommande;
 import eshop.entities.LigneCommandeKey;
 import eshop.entities.Produit;
+import eshop.exceptions.CommandeException;
 import eshop.repositories.CommandeRepository;
 import eshop.repositories.LigneCommandeRepository;
 
@@ -44,5 +45,9 @@ public class CommandeService {
 			lCRepo.save(new LigneCommande(new LigneCommandeKey(commande, k), v));
 		});
 		return commande;
+	}
+
+	public Commande getById(Long id) {
+		return commandeRepo.findByIdWithLignes(id).orElseThrow(CommandeException::new);
 	}
 }
