@@ -2,6 +2,9 @@ package eshop.entities;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -14,6 +17,8 @@ public abstract class Personne {
 	@JsonView(JsonViews.Base.class)
 	private String nom;
 	@JsonView(JsonViews.Base.class)
+	@Email
+	@NotEmpty
 	private String mail;
 
 	public Personne() {

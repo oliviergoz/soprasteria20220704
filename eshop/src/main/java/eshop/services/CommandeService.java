@@ -1,5 +1,6 @@
 package eshop.services;
 
+import java.time.LocalDate;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,13 @@ public class CommandeService {
 	private ClientService clientService;
 
 	public Commande create(Commande commande) {
+		if (commande.getDate() == null) {
+			commande.setDate(LocalDate.now());
+		}
 		commandeRepo.save(commande);
+		commande.getLignes().forEach(ligne -> {
+			ligne.getId().setCommande(commande);
+		});
 		lCRepo.saveAll(commande.getLignes());
 		return commande;
 	}

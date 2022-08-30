@@ -16,6 +16,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -31,6 +33,7 @@ public class Fournisseur {
 	private Long id;
 	@Column(name = "fournisseur_nom")
 	@JsonView(JsonViews.Base.class)
+	@NotEmpty
 	private String nom;
 	@AttributeOverrides({
 			@AttributeOverride(name = "prenom", column = @Column(name = "fournisseur_contact_prenom", length = 255)),
@@ -38,6 +41,7 @@ public class Fournisseur {
 			@AttributeOverride(name = "mail", column = @Column(name = "fournisseur_contact_mail", length = 255)) })
 	@Embedded
 	@JsonView(JsonViews.Base.class)
+	@Valid
 	private Contact contact;
 	@AttributeOverrides({
 			@AttributeOverride(name = "numero", column = @Column(name = "fournisseur_numero", length = 50)),

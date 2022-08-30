@@ -8,11 +8,14 @@ import org.springframework.stereotype.Service;
 import eshop.entities.Fournisseur;
 import eshop.exceptions.FournisseurException;
 import eshop.repositories.FournisseurRepository;
+import eshop.repositories.ProduitRepository;
 
 @Service
 public class FournisseurService {
 	@Autowired
 	private FournisseurRepository fournisseurRepo;
+	@Autowired
+	private ProduitRepository produitRepo;
 
 	public Fournisseur create(Fournisseur fournisseur) {
 		return fournisseurRepo.save(fournisseur);
@@ -39,6 +42,7 @@ public class FournisseurService {
 	}
 
 	public void delete(Fournisseur fournisseur) {
+		produitRepo.setFournisseurToNullByFournisseur(fournisseur);
 		fournisseurRepo.delete(fournisseur);
 	}
 

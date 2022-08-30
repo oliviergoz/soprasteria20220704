@@ -20,18 +20,22 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "commande")
 @SequenceGenerator(name = "seqCommande", sequenceName = "seq_commande", initialValue = 100, allocationSize = 1)
 @NamedQueries({
 		@NamedQuery(name = "Commande.findByIdWithLignes", query = "select c from Commande c left join fetch c.lignes left join fetch c.client where c.id=:id") })
 public class Commande {
+	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqCommande")
 	@Column(name = "commande_id")
 	private Long numero;
 	@Column(name = "commande_date")
-	private LocalDate date;
+	@JsonView(JsonViews.Base.class)
+	private LocalDate date = LocalDate.now();
 	@ManyToOne
 	@JoinColumn(name = "commande_id_client", foreignKey = @ForeignKey(name = "commande_commande_id_client_fk"))
 	private Client client;
