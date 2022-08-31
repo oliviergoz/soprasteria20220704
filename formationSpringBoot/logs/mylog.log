@@ -1,0 +1,6 @@
+2022-08-31 10:59:36.132  INFO 2821 --- [main] f.s.f.FormationSpringBootApplication     : Starting FormationSpringBootApplication using Java 17.0.1 on MacBook-Pro-de-olivier.local with PID 2821 (/Users/olivier/Documents/sopra20220616.nosync/soprasteria20220704/formationSpringBoot/target/classes started by olivier in /Users/olivier/Documents/sopra20220616.nosync/soprasteria20220704/formationSpringBoot)
+2022-08-31 10:59:36.133  INFO 2821 --- [main] f.s.f.FormationSpringBootApplication     : No active profile set, falling back to 1 default profile: "default"
+2022-08-31 10:59:36.325  INFO 2821 --- [main] f.s.f.FormationSpringBootApplication     : Started FormationSpringBootApplication in 0.35 seconds (JVM running for 0.476)
+2022-08-31 10:59:36.326  INFO 2821 --- [main] f.s.f.service.DisplayConsolService       : info
+2022-08-31 10:59:36.326  WARN 2821 --- [main] f.s.f.service.DisplayConsolService       : warn
+2022-08-31 10:59:36.326 ERROR 2821 --- [main] f.s.f.service.DisplayConsolService       : error
