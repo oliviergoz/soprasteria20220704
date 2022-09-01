@@ -1,0 +1,22 @@
+server:
+  servlet:
+    context-path: /exercice
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/exo
+    username: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+        format_sql: false
+        show_sql: false
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
