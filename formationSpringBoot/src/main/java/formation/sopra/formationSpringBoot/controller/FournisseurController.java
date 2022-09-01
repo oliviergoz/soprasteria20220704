@@ -1,6 +1,10 @@
 package formation.sopra.formationSpringBoot.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,18 +14,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import formation.sopra.formationSpringBoot.entities.Fournisseur;
+import formation.sopra.formationSpringBoot.entities.Utilisateur;
 import formation.sopra.formationSpringBoot.services.FournisseurService;
 
 @Controller
 @RequestMapping("/fournisseur")
 public class FournisseurController {
 
+	private Logger LOGGER=LoggerFactory.getLogger(FournisseurController.class);
+	
 	@Autowired
 	private FournisseurService fournisseurService;
 
 	@GetMapping("")
-	public String list(Model model) {
+	public String list(Model model,@AuthenticationPrincipal Utilisateur utilisateur) {
 		model.addAttribute("fournisseurs", fournisseurService.getAll());
+		LOGGER.info(utilisateur.getUsername());
 		return "fournisseur/list";
 	}
 

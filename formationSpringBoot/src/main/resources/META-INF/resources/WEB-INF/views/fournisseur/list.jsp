@@ -22,6 +22,7 @@
 <body>
 	<div class="container">
 		<h1>les fournisseurs</h1>
+		<h2>votre compte:${pageContext.request.userPrincipal.name}</h2>
 		<c:if test="${param.createOrUpdate != null}">
 			<div class="alert alert-primary">${param.createOrUpdate}</div>
 		</c:if>

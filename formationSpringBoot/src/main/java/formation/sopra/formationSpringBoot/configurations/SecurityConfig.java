@@ -1,12 +1,15 @@
 package formation.sopra.formationSpringBoot.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -16,12 +19,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		// @formatter:off
 		http
 			.antMatcher("/**")
+				.csrf().disable()
 				.authorizeHttpRequests()
+					.antMatchers("/login").permitAll()
 					.antMatchers(HttpMethod.GET,"/produit/**").permitAll()
 					.antMatchers("/fournisseur/**").hasAnyRole("ADMIN")
 					.anyRequest().authenticated()
 					.and()
-					.formLogin();
+					.formLogin()
+						.loginPage("/login") //controller qui gere l'url
+						.defaultSuccessUrl("/secure/home") //controller
+						.failureUrl("/login?error=")
+					.and()
+					.logout()
+						.logoutUrl("/logout")
+						.logoutSuccessUrl("/produit");
 					//.anyRequest().permitAll();
 		// @formatter:on
 
@@ -41,7 +53,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		// @formatter:on
 		
 		auth.userDetailsService(userDetailsService);
-
-		
+	}
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 }
