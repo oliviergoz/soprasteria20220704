@@ -19,18 +19,23 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "utilisateur")
 @SequenceGenerator(name = "seqUtilisateur", sequenceName = "seq_utilisateur", allocationSize = 1, initialValue = 1)
 public class Utilisateur implements UserDetails{
+	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqUtilisateur")
 	private Long id;
+	@JsonView(JsonViews.Base.class)
 	@Column(name = "login", nullable = false, unique = true)
 	private String login;
 	@Column(name = "password", nullable = false, length = 255)
 	private String password;
 	@Enumerated(EnumType.STRING)
+	@JsonView(JsonViews.Base.class)
 	private Role role;
 
 	public Utilisateur() {

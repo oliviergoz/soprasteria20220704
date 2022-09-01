@@ -7,6 +7,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,23 +18,35 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// @formatter:off
-		http
-			.antMatcher("/**")
+		
+		http.antMatcher("/api/**")
 				.csrf().disable()
-				.authorizeHttpRequests()
-					.antMatchers("/login").permitAll()
-					.antMatchers(HttpMethod.GET,"/produit/**").permitAll()
-					.antMatchers("/fournisseur/**").hasAnyRole("ADMIN")
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and()
+				.authorizeRequests()
+					.antMatchers(HttpMethod.GET,"/api/produit/**").permitAll()
 					.anyRequest().authenticated()
-					.and()
-					.formLogin()
-						.loginPage("/login") //controller qui gere l'url
-						.defaultSuccessUrl("/secure/home") //controller
-						.failureUrl("/login?error=")
-					.and()
-					.logout()
-						.logoutUrl("/logout")
-						.logoutSuccessUrl("/produit");
+				.and()
+				.httpBasic();
+				
+		
+//		http
+//			.antMatcher("/**")
+//				.csrf().disable()
+//				.authorizeHttpRequests()
+//					.antMatchers("/login").permitAll()
+//					.antMatchers(HttpMethod.GET,"/produit/**").permitAll()
+//					.antMatchers("/fournisseur/**").hasAnyRole("ADMIN")
+//					.anyRequest().authenticated()
+//					.and()
+//					.formLogin()
+//						.loginPage("/login") //controller qui gere l'url
+//						.defaultSuccessUrl("/secure/home") //controller
+//						.failureUrl("/login?error=")
+//					.and()
+//					.logout()
+//						.logoutUrl("/logout")
+//						.logoutSuccessUrl("/produit");
 					//.anyRequest().permitAll();
 		// @formatter:on
 
