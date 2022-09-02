@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DemoClass } from './formation/class/demo-class';
+import { Fournisseur } from './formation/class/fournisseur';
+import { Produit } from './formation/class/produit';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,17 @@ import { DemoClass } from './formation/class/demo-class';
 })
 export class AppComponent {
   title = 'formationAngular';
+  input = '';
+  lectureSeule = false;
+  couleur = 'yellow';
 
-  obj: DemoClass = new DemoClass();
+  produit: Produit = new Produit('nom produit');
+
+  sayHello(): string {
+    return 'hello';
+  }
+
+  click() {
+    this.input = 'click sur le bouton';
+  }
 }
