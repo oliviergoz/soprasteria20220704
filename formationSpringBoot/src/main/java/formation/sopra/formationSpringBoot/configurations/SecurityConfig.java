@@ -25,9 +25,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.and()
 				.authorizeRequests()
 					.antMatchers(HttpMethod.GET,"/api/produit/**").permitAll()
-					.anyRequest().authenticated()
+					.antMatchers("/api/**").authenticated()
 				.and()
 				.httpBasic();
+//		.and()
 				
 		
 //		http
@@ -47,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //					.logout()
 //						.logoutUrl("/logout")
 //						.logoutSuccessUrl("/produit");
-					//.anyRequest().permitAll();
+//					.anyRequest().permitAll();
 		// @formatter:on
 
 	}
