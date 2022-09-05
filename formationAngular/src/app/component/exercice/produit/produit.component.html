@@ -2,4 +2,8 @@
   (produitEvent)="recuperationProduit($event)"
 ></app-edit-produit>
 <hr />
-<app-display-produit [produit]="produit"></app-display-produit>
+<app-display-produit
+  *ngIf="produit.nom && produit.prix"
+  [ngClass]="{ positif: produit.prix! > 0, negatif: produit.prix! < 0 }"
+  [produit]="produit"
+></app-display-produit>

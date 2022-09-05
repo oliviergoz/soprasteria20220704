@@ -8,6 +8,9 @@ import { HelloComponent } from './component/demo/hello/hello.component';
 import { DisplayProduitComponent } from './component/exercice/display-produit/display-produit.component';
 import { ProduitComponent } from './component/exercice/produit/produit.component';
 import { EditProduitComponent } from './component/exercice/edit-produit/edit-produit.component';
+import { VoteComponent } from './component/exercice/vote/vote/vote.component';
+import { ClassementComponent } from './component/exercice/vote/classement/classement.component';
+import { DirectiveComponent } from './component/demo/directive/directive.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { EditProduitComponent } from './component/exercice/edit-produit/edit-pro
     DisplayProduitComponent,
     ProduitComponent,
     EditProduitComponent,
+    VoteComponent,
+    ClassementComponent,
+    DirectiveComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
