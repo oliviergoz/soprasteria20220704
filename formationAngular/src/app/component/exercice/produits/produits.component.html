@@ -1,0 +1,11 @@
+<table>
+  <tr
+    *ngFor="let p of produits"
+    [ngClass]="{ positif: p.prix! > 0, negatif: p.prix! < 0 }"
+  >
+    <td>{{ p.nom }}</td>
+    <td>{{ p.prix }}</td>
+  </tr>
+</table>
+<hr />
+<app-edit-produit (produitEvent)="getProduit($event)"></app-edit-produit>

@@ -11,6 +11,12 @@ import { EditProduitComponent } from './component/exercice/edit-produit/edit-pro
 import { VoteComponent } from './component/exercice/vote/vote/vote.component';
 import { ClassementComponent } from './component/exercice/vote/classement/classement.component';
 import { DirectiveComponent } from './component/demo/directive/directive.component';
+import { ProduitsComponent } from './component/exercice/produits/produits.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './component/demo/home/home.component';
+import { routes } from './routes';
+import { BonjourAvecParametreComponent } from './component/demo/bonjour-avec-parametre/bonjour-avec-parametre.component';
+import { PageNotFoundComponent } from './component/demo/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +29,12 @@ import { DirectiveComponent } from './component/demo/directive/directive.compone
     VoteComponent,
     ClassementComponent,
     DirectiveComponent,
+    ProduitsComponent,
+    HomeComponent,
+    BonjourAvecParametreComponent,
+    PageNotFoundComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent],
 })
