@@ -14,7 +14,7 @@ export class AppComponent {
   lectureSeule = false;
   couleur = '#000000';
 
-  produit: Produit = new Produit();
+  produit: Produit = new Produit('aaa', 1000);
   descriptionProduit = '';
 
   sayHello(): string {
