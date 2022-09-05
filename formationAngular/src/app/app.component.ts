@@ -12,9 +12,10 @@ export class AppComponent {
   title = 'formationAngular';
   input = '';
   lectureSeule = false;
-  couleur = 'yellow';
+  couleur = '#000000';
 
-  produit: Produit = new Produit('nom produit');
+  produit: Produit = new Produit();
+  descriptionProduit = '';
 
   sayHello(): string {
     return 'hello';
@@ -22,5 +23,10 @@ export class AppComponent {
 
   click() {
     this.input = 'click sur le bouton';
+  }
+
+  displayProduit() {
+    this.descriptionProduit = this.produit.nom + ' ' + this.produit.prix;
+    this.produit = new Produit();
   }
 }
