@@ -1,10 +1,11 @@
 <table>
   <tr
-    *ngFor="let p of produits"
+    *ngFor="let p of produits; let i = index"
     [ngClass]="{ positif: p.prix! > 0, negatif: p.prix! < 0 }"
   >
     <td>{{ p.nom }}</td>
     <td>{{ p.prix }}</td>
+    <td><a routerLink="/produit/{{ i }}" class="btn btn-link">details</a></td>
   </tr>
 </table>
 <hr />

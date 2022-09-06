@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProduitService } from 'src/app/demo/services/produit.service';
 import { Produit } from 'src/app/formation/class/produit';
 
 @Component({
@@ -10,7 +12,14 @@ export class DisplayProduitComponent implements OnInit {
   @Input()
   produit: Produit | undefined;
 
-  constructor() {}
+  constructor(
+    private produitService: ProduitService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      this.produit = this.produitService.get(params['i']);
+    });
+  }
 }

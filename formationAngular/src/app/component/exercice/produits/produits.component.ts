@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProduitService } from 'src/app/demo/services/produit.service';
 import { Produit } from 'src/app/formation/class/produit';
 
 @Component({
@@ -7,14 +8,13 @@ import { Produit } from 'src/app/formation/class/produit';
   styleUrls: ['./produits.component.css'],
 })
 export class ProduitsComponent implements OnInit {
-  produits: Produit[] = [
-    new Produit('velo', 100),
-    new Produit('avion', -9999999),
-  ];
+  produits: Produit[] = [];
 
-  constructor() {}
+  constructor(private produitService: ProduitService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.produits = this.produitService.produits;
+  }
 
   getProduit(produit: Produit) {
     this.produits.push(produit);
