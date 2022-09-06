@@ -17,6 +17,7 @@ import { HomeComponent } from './component/demo/home/home.component';
 import { routes } from './routes';
 import { BonjourAvecParametreComponent } from './component/demo/bonjour-avec-parametre/bonjour-avec-parametre.component';
 import { PageNotFoundComponent } from './component/demo/page-not-found/page-not-found.component';
+import { MenuComponent } from './component/demo/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PageNotFoundComponent } from './component/demo/page-not-found/page-not-
     HomeComponent,
     BonjourAvecParametreComponent,
     PageNotFoundComponent,
+    MenuComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [],

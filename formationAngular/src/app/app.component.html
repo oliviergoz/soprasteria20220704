@@ -1,13 +1,2 @@
-<nav>
-  <a [routerLink]="['/home']" routerLinkActive="active">home</a>
-  <a routerLink="/produits" routerLinkActive="active">produits</a>
-  <a [routerLink]="['/produits']" routerLinkActive="active">produits</a>
-  <a routerLink="/bonjour/olivier" routerLinkActive="active">bonjour</a>
-  <a [routerLink]="['/bonjour', title]" routerLinkActive="active"
-    >bonjour avec une variable</a
-  >
-  <a routerLink="/bonjour/{{ title }}" routerLinkActive="active"
-    >bonjour avec une variable</a
-  >
-</nav>
+<app-menu></app-menu>
 <router-outlet></router-outlet>
