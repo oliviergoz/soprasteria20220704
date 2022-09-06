@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -29,6 +31,7 @@ import formation.sopra.formationSpringBoot.services.FournisseurService;
 @RequestMapping("/api/fournisseur")
 @CrossOrigin(origins = "*")
 public class FournisseurRestController {
+	private static final Logger LOGGER=LoggerFactory.getLogger(FournisseurRestController.class);
 
 	@Autowired
 	private FournisseurService fournisseurService;
@@ -55,6 +58,7 @@ public class FournisseurRestController {
 	@JsonView(JsonViews.Base.class)
 	public Fournisseur create(@Valid @RequestBody Fournisseur fournisseur, BindingResult br) {
 		if (br.hasErrors()) {
+			LOGGER.info(br.toString());
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		return fournisseurService.create(fournisseur);
@@ -64,6 +68,7 @@ public class FournisseurRestController {
 	@JsonView(JsonViews.Base.class)
 	public Fournisseur update(@Valid @RequestBody Fournisseur fournisseur, BindingResult br, @PathVariable Long id) {
 		if (br.hasErrors()) {
+			
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		fournisseur.setId(id);

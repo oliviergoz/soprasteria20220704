@@ -1,1 +1,25 @@
-<p>list works!</p>
+<table class="table">
+  <tr *ngFor="let f of fournisseurs">
+    <td>{{ f.id }}</td>
+    <td>{{ f.nom }}</td>
+    <td>{{ f.contact?.prenom }}</td>
+    <td>{{ f.contact?.nom }}</td>
+    <td>{{ f.contact?.mail }}</td>
+    <td>{{ f.adresse?.rue }}</td>
+    <td>{{ f.adresse?.codePostal }}</td>
+    <td>{{ f.adresse?.ville }}</td>
+    <td>
+      <a
+        routerLink="/fournisseur/edit/{{ f.id }}"
+        class="btn btn-outline-primary"
+        >editer</a
+      >
+    </td>
+    <td>
+      <button (click)="delete(f.id!)" class="btn btn-outline-danger">
+        supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<a routerLink="/fournisseur/add" class="btn btn-link">nouveau fournisseur</a>

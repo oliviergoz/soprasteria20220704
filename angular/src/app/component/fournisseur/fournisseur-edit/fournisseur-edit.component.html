@@ -1,0 +1,74 @@
+<h1>edition fournisseur</h1>
+<div class="form-group">
+  <label for="id">id:</label>
+  <input id="id" class="form-control" [(ngModel)]="fournisseur.id" readonly />
+</div>
+<div class="form-group">
+  <label for="nom">nom:</label>
+  <input id="nom" class="form-control" [(ngModel)]="fournisseur.nom" />
+</div>
+<div class="form-group">
+  <label for="contact.prenom">prenom contact:</label>
+  <input
+    id="contact.prenom"
+    class="form-control"
+    [(ngModel)]="fournisseur.contact!.prenom"
+  />
+</div>
+<div class="form-group">
+  <label for="contact.nom">nom contact:</label>
+  <input
+    id="contact.nom"
+    class="form-control"
+    [(ngModel)]="fournisseur.contact!.nom"
+  />
+</div>
+<div class="form-group">
+  <label for="contact.mail">mail contact:</label>
+  <input
+    id="contact.mail"
+    class="form-control"
+    [(ngModel)]="fournisseur.contact!.mail"
+  />
+</div>
+<div class="form-group">
+  <label for="adresse.numero">numero:</label>
+  <input
+    id="adresse.numero"
+    class="form-control"
+    [(ngModel)]="fournisseur.adresse!.numero"
+  />
+</div>
+<div class="form-group">
+  <label for="adresse.rue">rue:</label>
+  <input
+    id="adresse.rue"
+    class="form-control"
+    [(ngModel)]="fournisseur.adresse!.rue"
+  />
+</div>
+<div class="form-group">
+  <label for="adresse.codePostal">code postal:</label>
+  <input
+    id="adresse.codePostal"
+    class="form-control"
+    [(ngModel)]="fournisseur.adresse!.codePostal"
+  />
+</div>
+<div class="form-group">
+  <label for="adresse.ville">ville:</label>
+  <input
+    id="adresse.ville"
+    class="form-control"
+    [(ngModel)]="fournisseur.adresse!.ville"
+  />
+</div>
+<div class="form-group">
+  <button class="btn btn-outline-success" (click)="save()">enregistrer</button>
+  <a
+    routerLink="/fournisseur"
+    routerLinkActive="active"
+    class="btn btn-outline-warning"
+    >annuler</a
+  >
+</div>
