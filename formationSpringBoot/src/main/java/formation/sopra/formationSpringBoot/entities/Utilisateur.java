@@ -14,6 +14,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,19 +27,24 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @Table(name = "utilisateur")
 @SequenceGenerator(name = "seqUtilisateur", sequenceName = "seq_utilisateur", allocationSize = 1, initialValue = 1)
-public class Utilisateur implements UserDetails{
+public class Utilisateur implements UserDetails {
 	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqUtilisateur")
 	private Long id;
 	@JsonView(JsonViews.Base.class)
 	@Column(name = "login", nullable = false, unique = true)
+	@NotEmpty
 	private String login;
 	@Column(name = "password", nullable = false, length = 255)
 	private String password;
 	@Enumerated(EnumType.STRING)
 	@JsonView(JsonViews.Base.class)
 	private Role role;
+
+	@Transient
+	@Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[*?.@!=+#]).{4,20}$")
+	private String pass;
 
 	public Utilisateur() {
 
@@ -72,6 +80,14 @@ public class Utilisateur implements UserDetails{
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 	@Override
