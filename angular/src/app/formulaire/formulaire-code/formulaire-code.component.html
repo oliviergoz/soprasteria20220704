@@ -1,0 +1,48 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-group">
+    <label>prenom</label>
+    <input formControlName="prenomCtrl" class="form-control" />
+    <div
+      *ngIf="form.get('prenomCtrl')?.dirty && form.get('prenomCtrl')?.invalid"
+    >
+      *champs invalide:doit etre rempli et faire 2 caracteres minimum
+    </div>
+  </div>
+  <div class="form-group">
+    <label>nom</label>
+    <input formControlName="nomCtrl" class="form-control" />
+    <div *ngIf="form.get('nomCtrl')?.dirty && form.get('nomCtrl')?.invalid">
+      <ng-container *ngIf="form.get('nomCtrl')?.hasError('required')">
+        *obligatoire
+      </ng-container>
+      <ng-container *ngIf="form.get('nomCtrl')?.hasError('toto')">
+        *pas toto
+      </ng-container>
+      <ng-container *ngIf="form.get('nomCtrl')?.hasError('texteInterdit')">
+        *texte interdit
+      </ng-container>
+    </div>
+  </div>
+  <ng-container formGroupName="passwordGroup">
+    <div class="form-group">
+      <label>mot de passe</label>
+      <input formControlName="passwordCtrl" class="form-control" />
+      <div
+        *ngIf="
+          form.get('passwordGroup.passwordCtrl')?.dirty &&
+          form.get('passwordGroup.passwordCtrl')?.invalid
+        "
+      >
+        *obligatoire
+      </div>
+    </div>
+    <div class="form-group">
+      <label>confirmation</label>
+      <input formControlName="confirmCtrl" class="form-control" />
+      <div *ngIf="form.get('passwordGroup')?.hasError('equals')">
+        *valeur differente
+      </div>
+    </div>
+  </ng-container>
+  <button type="submit" [disabled]="form.invalid" class="btn">valider</button>
+</form>

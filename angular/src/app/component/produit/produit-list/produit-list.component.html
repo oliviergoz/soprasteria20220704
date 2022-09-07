@@ -4,6 +4,7 @@
     <th>libelle:</th>
     <th>description</th>
     <th>prix</th>
+    <th>fournisseur:</th>
   </thead>
   <tbody>
     <tr *ngFor="let produit of observalbeProduits | async">
@@ -11,6 +12,7 @@
       <td>{{ produit.libelle }}</td>
       <td>{{ produit.description }}</td>
       <td>{{ produit.prixUnitaire }}</td>
+      <td>{{ produit.fournisseur?.id }} {{ produit.fournisseur?.nom }}</td>
       <td>
         <a
           routerLink="/produit/edit/{{ produit.id }}"

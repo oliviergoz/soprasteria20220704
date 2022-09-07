@@ -9,9 +9,11 @@ import { HomeComponent } from './component/home/home.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { FournisseurEditComponent } from './component/fournisseur/fournisseur-edit/fournisseur-edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProduitListComponent } from './component/produit/produit-list/produit-list.component';
 import { ProduitEditComponent } from './component/produit/produit-edit/produit-edit.component';
+import { FormulaireTemplateComponent } from './formulaire/formulaire-template/formulaire-template.component';
+import { FormulaireCodeComponent } from './formulaire/formulaire-code/formulaire-code.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,15 @@ import { ProduitEditComponent } from './component/produit/produit-edit/produit-e
     FournisseurEditComponent,
     ProduitListComponent,
     ProduitEditComponent,
+    FormulaireTemplateComponent,
+    FormulaireCodeComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

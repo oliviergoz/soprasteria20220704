@@ -4,6 +4,8 @@ import { ListComponent } from './component/fournisseur/list/list.component';
 import { HomeComponent } from './component/home/home.component';
 import { ProduitEditComponent } from './component/produit/produit-edit/produit-edit.component';
 import { ProduitListComponent } from './component/produit/produit-list/produit-list.component';
+import { FormulaireCodeComponent } from './formulaire/formulaire-code/formulaire-code.component';
+import { FormulaireTemplateComponent } from './formulaire/formulaire-template/formulaire-template.component';
 import { Fournisseur } from './model/fournisseur';
 
 export const routes: Routes = [
@@ -14,5 +16,7 @@ export const routes: Routes = [
   { path: 'produit', component: ProduitListComponent },
   { path: 'produit/add', component: ProduitEditComponent },
   { path: 'produit/edit/:id', component: ProduitEditComponent },
+  { path: 'formulaire/template', component: FormulaireTemplateComponent },
+  { path: 'formulaire/code', component: FormulaireCodeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

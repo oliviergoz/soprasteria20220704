@@ -1,0 +1,6 @@
+<div>
+  <form (ngSubmit)="submit(monForm)" #monForm="ngForm">
+    <input [(ngModel)]="texte" name="texte" required #texteCtrl="ngModel" />
+    <button type="submit" [disabled]="monForm.invalid">validation</button>
+  </form>
+</div>

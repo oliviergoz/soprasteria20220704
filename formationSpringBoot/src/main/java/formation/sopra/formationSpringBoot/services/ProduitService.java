@@ -39,6 +39,8 @@ public class ProduitService {
 		if (fournisseur != null) {
 			fournisseur = fournisseurService.getById(fournisseur.getId());
 			produitEnBase.setFournisseur(fournisseur);
+		}else {
+			produitEnBase.setFournisseur(null);
 		}
 		return produitRepo.save(produitEnBase);
 	}
