@@ -1,0 +1,35 @@
+<h1>edition produit</h1>
+<div class="form-group">
+  <label for="id">id:</label>
+  <input id="id" class="form-control" [(ngModel)]="produit.id" readonly />
+</div>
+<div class="form-group">
+  <label for="libelle">libelle:</label>
+  <input id="libelle" class="form-control" [(ngModel)]="produit.libelle" />
+</div>
+<div class="form-group">
+  <label for="description">description:</label>
+  <textarea
+    id="description"
+    class="form-control"
+    [(ngModel)]="produit.description"
+  ></textarea>
+</div>
+<div class="form-group">
+  <label for="prixUnitaire">prix:</label>
+  <input
+    id="prixUnitaire"
+    class="form-control"
+    [(ngModel)]="produit.prixUnitaire"
+    type="number"
+  />
+</div>
+<div class="form-group">
+  <button class="btn btn-outline-success" (click)="save()">enregistrer</button>
+  <a
+    routerLink="/produit"
+    routerLinkActive="active"
+    class="btn btn-outline-warning"
+    >annuler</a
+  >
+</div>

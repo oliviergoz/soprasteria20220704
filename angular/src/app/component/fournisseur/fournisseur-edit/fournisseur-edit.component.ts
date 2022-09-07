@@ -21,12 +21,14 @@ export class FournisseurEditComponent implements OnInit {
     this.fournisseur = new Fournisseur();
     this.fournisseur.contact = new Contact();
     this.fournisseur.adresse = new Adresse();
+    console.log(this.fournisseur);
   }
 
   ngOnInit(): void {
     this.ar.params.subscribe((params) => {
       if (params['id']) {
         this.fournisseurService.getById(params['id']).subscribe((result) => {
+          console.log(result);
           this.fournisseur = result;
         });
       }

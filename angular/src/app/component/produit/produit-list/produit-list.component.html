@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+    <th>id:</th>
+    <th>libelle:</th>
+    <th>description</th>
+    <th>prix</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produit of observalbeProduits | async">
+      <td>{{ produit.id }}</td>
+      <td>{{ produit.libelle }}</td>
+      <td>{{ produit.description }}</td>
+      <td>{{ produit.prixUnitaire }}</td>
+      <td>
+        <a
+          routerLink="/produit/edit/{{ produit.id }}"
+          routerLink="active"
+          class="btn btn-outline-primary"
+          >editer</a
+        >
+      </td>
+      <td>
+        <button (click)="delete(produit.id!)" class="btn btn-outline-danger">
+          supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a routerLink="/produit/add" routerLinkActive="active" class="btn btn-link"
+  >nouveau produit</a
+>

@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { FournisseurEditComponent } from './component/fournisseur/fournisseur-edit/fournisseur-edit.component';
 import { FormsModule } from '@angular/forms';
+import { ProduitListComponent } from './component/produit/produit-list/produit-list.component';
+import { ProduitEditComponent } from './component/produit/produit-edit/produit-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { FormsModule } from '@angular/forms';
     MenuComponent,
     HomeComponent,
     FournisseurEditComponent,
+    ProduitListComponent,
+    ProduitEditComponent,
   ],
   imports: [
     BrowserModule,
