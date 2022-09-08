@@ -39,11 +39,16 @@ export class ProduitEditComponent implements OnInit {
   save() {
     if (this.produit.id) {
       this.produitService.update(this.produit).subscribe(() => {
-        this.router.navigateByUrl('/produit');
+        this.router.navigateByUrl('/produit?q=update&id=' + this.produit.id);
       });
     } else {
-      this.produitService.create(this.produit).subscribe(() => {
-        this.router.navigateByUrl('/produit');
+      this.produitService.create(this.produit).subscribe({
+        next: (result) => {
+          this.router.navigateByUrl('/produit?q=create&id=' + result.id);
+        },
+        error: (err) => {
+          console.log(err);
+        },
       });
     }
   }

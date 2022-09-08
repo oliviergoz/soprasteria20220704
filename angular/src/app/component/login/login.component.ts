@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
       next: (result) => {
         sessionStorage.setItem('token', btoa(this.login + ':' + this.password));
         this.authError = false;
+        sessionStorage.setItem('user', JSON.stringify(result));
         this.router.navigateByUrl('/home');
       },
       error: (err) => {

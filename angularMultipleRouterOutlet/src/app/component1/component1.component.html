@@ -1,0 +1,22 @@
+<ul>
+  <li>
+    <a
+      [routerLink]="[
+        '/',
+        { outlets: { primary: ['comp1'], secondary: ['comp3'] } }
+      ]"
+      routerLinkActive="active"
+      >componant1 avec component3</a
+    >
+  </li>
+  <li>
+    <a
+      [routerLink]="[
+        '/',
+        { outlets: { primary: ['comp1'], secondary: ['comp4'] } }
+      ]"
+      routerLinkActive="active"
+      >component1 avec component4</a
+    >
+  </li>
+</ul>
