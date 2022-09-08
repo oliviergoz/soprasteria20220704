@@ -1,6 +1,7 @@
 <div>
   <form (ngSubmit)="submit(monForm)" #monForm="ngForm">
     <input [(ngModel)]="texte" name="texte" required #texteCtrl="ngModel" />
+    <div *ngIf="texteCtrl.dirty && texteCtrl.invalid">*probleme</div>
     <button type="submit" [disabled]="monForm.invalid">validation</button>
   </form>
 </div>

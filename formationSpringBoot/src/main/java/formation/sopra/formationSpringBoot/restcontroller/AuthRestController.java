@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,8 +50,16 @@ public class AuthRestController {
 		if(br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);	
 		}
+		if(utilisateurRepo.findByLogin(utilisateur.getLogin()).isPresent()) {
+			throw new ResponseStatusException(HttpStatus.CONFLICT);
+		}
 		utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPass()));
 		utilisateur.setRole(Role.ROLE_USER);
 		return utilisateurRepo.save(utilisateur);
+	}
+	
+	@GetMapping("/check/{login}")
+	public boolean loginExist(@PathVariable String login) {
+		return utilisateurRepo.findByLogin(login).isPresent();
 	}
 }

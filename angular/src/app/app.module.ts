@@ -14,6 +14,7 @@ import { ProduitListComponent } from './component/produit/produit-list/produit-l
 import { ProduitEditComponent } from './component/produit/produit-edit/produit-edit.component';
 import { FormulaireTemplateComponent } from './formulaire/formulaire-template/formulaire-template.component';
 import { FormulaireCodeComponent } from './formulaire/formulaire-code/formulaire-code.component';
+import { InscriptionComponent } from './component/inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormulaireCodeComponent } from './formulaire/formulaire-code/formulaire
     ProduitEditComponent,
     FormulaireTemplateComponent,
     FormulaireCodeComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,
