@@ -2,25 +2,21 @@
   <a [routerLink]="['/home']" routerLinkActive="active" class="btn btn-link"
     >home</a
   >
-  <a routerLink="/fournisseur" routerLinkActive="active" class="btn btn-link"
-    >fournisseurs</a
-  >
-  <a routerLink="/produit" routerLinkActive="active" class="btn btn-link"
-    >produits</a
-  >
-  <a routerLink="/inscription" routerLinkActive="active" class="btn btn-link"
-    >inscription</a
-  >
-  <a
-    routerLink="/formulaire/template"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >formulaire template</a
-  >
-  <a
-    routerLink="/formulaire/code"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >formulaire code</a
-  >
+  <ng-container *ngIf="logged">
+    <a routerLink="/fournisseur" routerLinkActive="active" class="btn btn-link"
+      >fournisseurs</a
+    >
+    <a routerLink="/produit" routerLinkActive="active" class="btn btn-link"
+      >produits</a
+    >
+    <button (click)="logout()" class="btn btn-link">deconnexion</button>
+  </ng-container>
+  <ng-container *ngIf="!logged">
+    <a routerLink="/login" routerLinkActive="active" class="btn btn-link"
+      >connexion</a
+    >
+    <a routerLink="/inscription" routerLinkActive="active" class="btn btn-link"
+      >inscription</a
+    >
+  </ng-container>
 </nav>

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './component/fournisseur/list/list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MenuComponent } from './component/menu/menu.component';
 import { HomeComponent } from './component/home/home.component';
 import { RouterModule } from '@angular/router';
@@ -15,6 +15,8 @@ import { ProduitEditComponent } from './component/produit/produit-edit/produit-e
 import { FormulaireTemplateComponent } from './formulaire/formulaire-template/formulaire-template.component';
 import { FormulaireCodeComponent } from './formulaire/formulaire-code/formulaire-code.component';
 import { InscriptionComponent } from './component/inscription/inscription.component';
+import { LoginComponent } from './component/login/login.component';
+import { AuthInterceptor } from './interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { InscriptionComponent } from './component/inscription/inscription.compon
     FormulaireTemplateComponent,
     FormulaireCodeComponent,
     InscriptionComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { InscriptionComponent } from './component/inscription/inscription.compon
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
